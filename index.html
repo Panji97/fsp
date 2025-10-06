@@ -493,10 +493,12 @@
                 border-radius: 10px;
                 overflow: hidden;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                overflow-x: auto; /* Memastikan tabel responsif */
             }
 
             table {
                 width: 100%;
+                min-width: 500px; /* Lebar minimum agar tidak terlalu sempit di mobile */
                 border-collapse: collapse;
             }
 
@@ -521,20 +523,24 @@
                 background: rgba(0, 102, 204, 0.05);
             }
 
+            /* PERBAIKAN RESPONSIVITAS PAGINATION */
             .pagination {
                 display: flex;
                 justify-content: center;
                 margin-top: 30px;
-                gap: 10px;
+                gap: 5px; /* Mengurangi jarak antar tombol di mobile */
+                flex-wrap: wrap; /* BARU: Memungkinkan tombol turun ke baris baru */
+                padding: 0 10px; /* Sedikit padding horizontal */
             }
 
             .pagination button {
-                padding: 8px 15px;
+                padding: 8px 12px; /* Mengurangi padding horizontal di mobile */
                 background: var(--white);
                 border: 1px solid var(--medium-gray);
                 border-radius: 5px;
                 cursor: pointer;
                 transition: all 0.3s ease;
+                min-width: 40px; /* Memastikan tombol cukup lebar */
             }
 
             .pagination button.active,
@@ -543,6 +549,7 @@
                 color: var(--white);
                 border-color: var(--primary-blue);
             }
+            /* AKHIR PERBAIKAN PAGINATION */
 
             /* Quick View Modal */
             .modal {
@@ -1748,7 +1755,44 @@
                 paginationContainer.appendChild(prevButton)
 
                 // Page buttons
-                for (let i = 1; i <= totalPages; i++) {
+                // Tampilkan hanya tombol-tombol yang relevan (misalnya 3 di kiri dan 3 di kanan dari halaman saat ini, ditambah awal dan akhir)
+                let startPage, endPage
+                if (totalPages <= 7) {
+                    // Jika total halaman kurang dari 7, tampilkan semua tombol
+                    startPage = 1
+                    endPage = totalPages
+                } else {
+                    // Jika total halaman lebih dari 7, gunakan elipsis
+                    if (currentPage <= 4) {
+                        startPage = 1
+                        endPage = 5
+                    } else if (currentPage + 2 >= totalPages) {
+                        startPage = totalPages - 4
+                        endPage = totalPages
+                    } else {
+                        startPage = currentPage - 2
+                        endPage = currentPage + 2
+                    }
+                }
+
+                // Logika untuk menampilkan tombol di awal (1)
+                if (startPage > 1) {
+                    const firstPageButton = document.createElement('button')
+                    firstPageButton.textContent = 1
+                    firstPageButton.addEventListener('click', () => {
+                        currentPage = 1
+                        renderCertificationTable(currentPage)
+                    })
+                    paginationContainer.appendChild(firstPageButton)
+                    if (startPage > 2) {
+                        const ellipsis = document.createElement('span')
+                        ellipsis.textContent = '...'
+                        paginationContainer.appendChild(ellipsis)
+                    }
+                }
+
+                // Tombol-tombol halaman utama
+                for (let i = startPage; i <= endPage; i++) {
                     const pageButton = document.createElement('button')
                     pageButton.textContent = i
                     pageButton.className = i === currentPage ? 'active' : ''
@@ -1757,6 +1801,22 @@
                         renderCertificationTable(currentPage)
                     })
                     paginationContainer.appendChild(pageButton)
+                }
+
+                // Logika untuk menampilkan tombol di akhir (totalPages)
+                if (endPage < totalPages) {
+                    if (endPage < totalPages - 1) {
+                        const ellipsis = document.createElement('span')
+                        ellipsis.textContent = '...'
+                        paginationContainer.appendChild(ellipsis)
+                    }
+                    const lastPageButton = document.createElement('button')
+                    lastPageButton.textContent = totalPages
+                    lastPageButton.addEventListener('click', () => {
+                        currentPage = totalPages
+                        renderCertificationTable(currentPage)
+                    })
+                    paginationContainer.appendChild(lastPageButton)
                 }
 
                 // Next button
@@ -1872,7 +1932,10 @@
 
                 clientsTrack.innerHTML = '' // Bersihkan sebelum render
 
-                clientLogos.forEach((client) => {
+                // Duplikasi data logo agar animasi scroll lancar
+                const allLogos = [...clientLogos, ...clientLogos]
+
+                allLogos.forEach((client) => {
                     const logoContainer = document.createElement('div')
                     logoContainer.className = 'client-logo-container'
                     logoContainer.innerHTML = `
