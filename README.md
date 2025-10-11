@@ -1,1 +1,1 @@
-Link = https://fsp-faqibsuryaperkasa.com/
+Link = https://www.fsp-faqibsuryaperkasa.com/
