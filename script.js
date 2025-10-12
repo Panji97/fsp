@@ -17,101 +17,6 @@ function changeHeroBackground() {
 setInterval(changeHeroBackground, 5000)
 // AKHIR MODIFIKASI HERO CAROUSEL
 
-// Data for services (SUDAH DIMODIFIKASI SEBELUMNYA)
-const servicesData = [
-    {
-        id: 1,
-        title: 'Perawatan Sumur (BNSP)',
-        category: ['migas', 'bnsp'],
-        level: 'Menengah',
-        icon: 'fas fa-oil-can'
-    },
-    {
-        id: 2,
-        title: 'Pemboran (BNSP)',
-        category: ['migas', 'bnsp'],
-        level: 'Menengah',
-        icon: 'fas fa-dolly-flatbed'
-    },
-    {
-        id: 3,
-        title: 'IADC Workover',
-        category: ['migas', 'iadc'],
-        level: 'Lanjut',
-        icon: 'fas fa-hard-hat'
-    },
-    {
-        id: 4,
-        title: 'IADC Drilling',
-        category: ['migas', 'iadc'],
-        level: 'Lanjut',
-        icon: 'fas fa-cog'
-    },
-    {
-        id: 5,
-        title: 'K3 Pesawat Angkat (Kemenaker)',
-        category: ['k3', 'kemenaker'],
-        level: 'Pemula',
-        icon: 'fas fa-truck-loading'
-    },
-    {
-        id: 6,
-        title: 'TKB12 (Kemenaker)',
-        category: ['k3', 'kemenaker'],
-        level: 'Pemula',
-        icon: 'fas fa-fire-extinguisher'
-    },
-    {
-        id: 7,
-        title: 'Operator Pesawat Angkat (BNSP)',
-        category: ['teknikal', 'bnsp'],
-        level: 'Menengah',
-        icon: 'fas fa-crane'
-    },
-    {
-        id: 8,
-        title: 'Rigger (BNSP)',
-        category: ['teknikal', 'bnsp'],
-        level: 'Menengah',
-        icon: 'fas fa-tools'
-    },
-    {
-        id: 9,
-        title: 'K3 Migas Operator & Pengawas (BNSP)',
-        category: ['k3', 'migas', 'bnsp'],
-        level: 'Menengah',
-        icon: 'fas fa-shield-alt'
-    },
-    {
-        id: 10,
-        title: 'Teknisi Listrik Utilitas (BNSP)',
-        category: ['teknikal', 'bnsp'],
-        level: 'Lanjut',
-        icon: 'fas fa-bolt'
-    },
-    {
-        id: 11,
-        title: 'Mekanik Perawatan Tingkat (BNSP)',
-        category: ['teknikal', 'bnsp'],
-        level: 'Menengah',
-        icon: 'fas fa-wrench'
-    },
-    {
-        id: 12,
-        title: 'Mekanik Supervisor (BNSP)',
-        category: ['teknikal', 'bnsp'],
-        level: 'Lanjut',
-        icon: 'fas fa-cogs'
-    },
-    {
-        id: 13,
-        title: 'Leadership Training',
-        category: ['teknikal'],
-        level: 'Lanjut',
-        icon: 'fas fa-users'
-    }
-]
-
 // Data for BNSP certifications
 const certificationsData = [
     { no: 1, name: 'Inspektur Rfg' },
@@ -318,46 +223,6 @@ filterChips.forEach((chip) => {
     })
 })
 
-function filterServices(filter) {
-    let filteredServices
-
-    if (filter === 'all') {
-        filteredServices = servicesData
-    } else {
-        filteredServices = servicesData.filter((service) => service.category.includes(filter))
-    }
-
-    renderServices(filteredServices)
-}
-
-// MODIFIKASI JAVASCRIPT: Mengganti gambar dengan ikon
-function renderServices(services) {
-    servicesGrid.innerHTML = ''
-
-    services.forEach((service) => {
-        const serviceCard = document.createElement('div')
-        serviceCard.className = 'service-card'
-        serviceCard.innerHTML = `
-        <div class="service-image">
-            <i class="${service.icon} service-icon"></i>
-        </div>
-        <div class="service-content">
-            <h3>${service.title}</h3>
-            <div class="service-meta">
-                <span>Tingkat: ${service.level}</span>
-            </div>
-            <a href="#contact" class="btn btn-secondary" style="margin-top: 20px;">Detail & Daftar</a>
-        </div>
-    `
-
-        servicesGrid.appendChild(serviceCard)
-    })
-}
-// Akhir MODIFIKASI JAVASCRIPT
-
-// Initialize services
-renderServices(servicesData)
-
 // Certification Table with Pagination
 const itemsPerPage = 10
 let currentPage = 1
@@ -482,39 +347,6 @@ function renderPagination() {
     paginationContainer.appendChild(nextButton)
 }
 
-// Search functionality
-searchInput.addEventListener('input', () => {
-    const searchTerm = searchInput.value.toLowerCase()
-
-    if (searchTerm === '') {
-        filteredCertifications = [...certificationsData]
-    } else {
-        filteredCertifications = certificationsData.filter((cert) => cert.name.toLowerCase().includes(searchTerm))
-    }
-
-    currentPage = 1
-    renderCertificationTable(currentPage)
-})
-
-// Certification Modal
-function showCertificationModal(cert) {
-    modalTitle.textContent = cert.name
-    modalDescription.textContent = `Ini adalah deskripsi lengkap untuk sertifikasi ${cert.name}. Informasi lebih detail tentang ruang lingkup, persyaratan, dan durasi training akan ditampilkan di sini.`
-    certificationModal.style.display = 'flex'
-}
-
-closeModalBtn.addEventListener('click', () => {
-    certificationModal.style.display = 'none'
-})
-
-window.addEventListener('click', (e) => {
-    if (e.target === certificationModal) {
-        certificationModal.style.display = 'none'
-    }
-})
-
-// Initialize certification table
-renderCertificationTable(currentPage)
 
 // Gallery Filter
 galleryFilterBtns.forEach((btn) => {
