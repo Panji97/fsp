@@ -277,6 +277,96 @@ nav ul li a:hover:after {
 }
 /* AKHIR MODIFIKASI HERO SECTION */
 
+/* Hero layanan Section */
+.hero-layanan {
+    height: 300px;
+    background: var(--secondary-blue); /* Fallback */
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    color: var(--white);
+    position: relative;
+    overflow: hidden; /* Penting untuk mengelola gambar di dalamnya */
+}
+
+/* Gaya untuk masing-masing gambar latar belakang */
+.hero-layanan-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efek Parallax */
+    opacity: 0; /* Semua gambar tersembunyi secara default */
+    transition: opacity 1.5s ease; /* Transisi pergantian gambar */
+}
+
+.hero-layanan-image.active {
+    opacity: 1; /* Gambar yang sedang aktif */
+}
+
+/* Overlay gelap untuk teks */
+.hero-layanan:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* PERBAIKAN: membuat background linear gradient */
+    background: linear-gradient(
+        to right,
+        rgba(0, 51, 102, 0.85),
+        rgba(0, 51, 102, 0.35)
+    ); /* Overlay */
+    z-index: 2;
+}
+
+.hero-layanan-content {
+    max-width: 100%;
+    margin: 0 180px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 3; /* Pastikan konten di atas gambar dan overlay */
+}
+
+.hero-layanan h1 {
+    font-size: 2.8rem;
+    color: var(--white);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.bnsp{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.bnsp-logo{
+    width: 224px;
+    height: 86px;
+    margin: 0 auto;
+}
+
+.pelayanan-container{
+    padding: 0 120px;
+}
+
+.disclosure-container{
+    margin: 30px auto;
+}
+
+.pelayanan-item{
+    margin-bottom: 0px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+/* End Hero Layanan Section */
+
 /* About Section */
 .about {
     background: var(--light-gray);
@@ -924,6 +1014,32 @@ footer {
         flex-direction: column;
     }
 }
+
+/* Start Layanan Kami */
+.disclosure{border-radius:8px;overflow:hidden;border:1px solid #e6edf3;margin-bottom:12px;transition:all 0.3s ease;}
+.disclosure__btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:transparent;border:0;cursor:pointer;font-weight:600;font-size:14px}
+.disclosure__btn:focus{outline:3px solid rgba(15,98,254,0.12);outline-offset:2px}
+
+
+.icon{width:20px;height:20px;position:relative;transition:transform .3s ease;}
+.icon::before, .icon::after{content:'';position:absolute;top:50%;left:50%;background:#111;transition:all .3s ease;}
+.icon::before{width:12px;height:2px;transform:translate(-50%, -50%);} /* garis horizontal */
+.icon::after{width:2px;height:12px;transform:translate(-50%, -50%);} /* garis vertikal */
+
+
+.disclosure[aria-expanded="true"] .icon::after{height:0;} /* jadi minus saat terbuka */
+
+
+.panel-wrap{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(0.25, 1, 0.5, 1), padding .3s ease;}
+.panel{padding:0 16px 16px 16px;color:var(--muted);line-height:1.6;opacity:0;transform:translateY(-5px);transition:opacity .35s ease, transform .35s ease;}
+
+
+.disclosure[aria-expanded="true"] .panel-wrap{max-height:400px;padding-top:8px;}
+.disclosure[aria-expanded="true"] .panel{opacity:1;transform:translateY(0);}
+
+
+.hint{font-size:13px;color:var(--muted);margin-top:10px}
+/* End Layanan Kami */
 
 @media (max-width: 768px) {
     h1 {
