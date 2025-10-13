@@ -379,7 +379,7 @@ function renderGallery(galleryItems) {
     galleryItems.forEach((item) => {
         const gridItem = document.createElement('div')
         gridItem.className = 'grid-item'
-        gridItem.innerHTML = `<img src="${item.image}" alt="Gallery Image ${item.id}">`
+        gridItem.innerHTML = `<img src="${item.image}" class="galery-image" alt="Gallery Image ${item.id}">`
 
         gridItem.addEventListener('click', () => {
             showLightbox(item.image)
