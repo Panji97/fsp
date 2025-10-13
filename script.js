@@ -147,7 +147,22 @@ const galleryData = [
     {
         id: 9,
         category: 'events',
-        image: '/images/c.jpeg'
+        image: '/images/i.jpeg'
+    },
+    {
+        id: 10,
+        category: 'events',
+        image: '/images/j.jpeg'
+    },
+    {
+        id: 11,
+        category: 'events',
+        image: '/images/k.jpeg'
+    },
+    {
+        id: 12,
+        category: 'training',
+        image: '/images/l.jpeg'
     }
 ]
 
@@ -347,7 +362,6 @@ function renderPagination() {
     paginationContainer.appendChild(nextButton)
 }
 
-
 // Gallery Filter
 galleryFilterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -507,29 +521,28 @@ window.addEventListener('scroll', fadeInOnScroll)
 // Trigger once on load
 fadeInOnScroll()
 
-
 // Start Layanan Kami
-const disclosures = document.querySelectorAll('.disclosure');
+const disclosures = document.querySelectorAll('.disclosure')
 
 disclosures.forEach((disc) => {
-    const btn = disc.querySelector('.disclosure__btn');
-    const panel = disc.querySelector('.panel-wrap');
+    const btn = disc.querySelector('.disclosure__btn')
+    const panel = disc.querySelector('.panel-wrap')
 
-    function setOpen(isOpen){
-    disc.setAttribute('aria-expanded', String(isOpen));
-    btn.setAttribute('aria-expanded', String(isOpen));
-    panel.setAttribute('aria-hidden', String(!isOpen));
-    if(isOpen){
-        const h = panel.scrollHeight;
-        panel.style.maxHeight = h + 'px';
-    } else {
-        panel.style.maxHeight = 0;
-    }
+    function setOpen(isOpen) {
+        disc.setAttribute('aria-expanded', String(isOpen))
+        btn.setAttribute('aria-expanded', String(isOpen))
+        panel.setAttribute('aria-hidden', String(!isOpen))
+        if (isOpen) {
+            const h = panel.scrollHeight
+            panel.style.maxHeight = h + 'px'
+        } else {
+            panel.style.maxHeight = 0
+        }
     }
 
-    btn.addEventListener('click', ()=>{
-    const open = disc.getAttribute('aria-expanded') === 'true';
-    setOpen(!open);
-    });
-});
+    btn.addEventListener('click', () => {
+        const open = disc.getAttribute('aria-expanded') === 'true'
+        setOpen(!open)
+    })
+})
 // End Layanan Kami
