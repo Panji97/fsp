@@ -1,0 +1,1281 @@
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-blue: #0066cc;
+    --secondary-blue: #003366;
+    --white: #ffffff;
+    --black: #333333;
+    --light-gray: #f5f5f5;
+    --medium-gray: #eaeaea;
+    /* Menambahkan variabel untuk warna biru yang tepat dari logo */
+    --logo-blue: #1a6dff; /* Warna biru dari logo gambar yang Anda berikan */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--black);
+    background-color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--secondary-blue);
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+h2:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-blue);
+    margin: 10px auto;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background: var(--secondary-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+/* Header & Navigation */
+header {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(162, 55, 55, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* Memastikan logo gambar dan teks sejajar secara vertikal */
+}
+
+.logo-image {
+    height: 82px; /* Tinggi logo gambar */
+    width: auto;
+}
+
+.menu-wrapper{
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--primary-blue);
+}
+
+nav ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary-blue);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover:after {
+    width: 100%;
+}
+
+.language-switcher {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.language-switcher button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--black);
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.language-switcher button.active {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--secondary-blue);
+    cursor: pointer;
+}
+
+/* MODIFIKASI: Hero Section for Carousel */
+.hero {
+    height: 100vh;
+    background: var(--secondary-blue); /* Fallback */
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    position: relative;
+    overflow: hidden; /* Penting untuk mengelola gambar di dalamnya */
+}
+
+/* Gaya untuk masing-masing gambar latar belakang */
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efek Parallax */
+    opacity: 0; /* Semua gambar tersembunyi secara default */
+    transition: opacity 1.5s ease; /* Transisi pergantian gambar */
+}
+
+.hero-image.active {
+    opacity: 1; /* Gambar yang sedang aktif */
+}
+
+/* Overlay gelap untuk teks */
+.hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* PERBAIKAN: membuat background linear gradient */
+    background: linear-gradient(
+        to right,
+        rgba(0, 51, 102, 0.85),
+        rgba(0, 51, 102, 0.35)
+    ); /* Overlay */
+    z-index: 2;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0 180px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 3; /* Pastikan konten di atas gambar dan overlay */
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    color: var(--white);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: start;
+    gap: 15px;
+}
+/* AKHIR MODIFIKASI HERO SECTION */
+
+/* Hero layanan Section */
+.hero-layanan {
+    height: 300px;
+    background: var(--secondary-blue); /* Fallback */
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    color: var(--white);
+    position: relative;
+    overflow: hidden; /* Penting untuk mengelola gambar di dalamnya */
+}
+
+/* Gaya untuk masing-masing gambar latar belakang */
+.hero-layanan-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efek Parallax */
+    opacity: 0; /* Semua gambar tersembunyi secara default */
+    transition: opacity 1.5s ease; /* Transisi pergantian gambar */
+}
+
+.hero-layanan-image.active {
+    opacity: 1; /* Gambar yang sedang aktif */
+}
+
+/* Overlay gelap untuk teks */
+.hero-layanan:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* PERBAIKAN: membuat background linear gradient */
+    background: linear-gradient(
+        to right,
+        rgba(0, 51, 102, 0.85),
+        rgba(0, 51, 102, 0.35)
+    ); /* Overlay */
+    z-index: 2;
+}
+
+.hero-layanan-content {
+    max-width: 100%;
+    margin: 0 180px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 3; /* Pastikan konten di atas gambar dan overlay */
+}
+
+.hero-layanan h1 {
+    font-size: 2.8rem;
+    color: var(--white);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.bnsp{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.bnsp-logo{
+    width: 224px;
+    height: 86px;
+    margin: 0 auto;
+}
+
+.iadc{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.iadc-logo{
+    width: 254px;
+    height: 86px;
+    margin: 0 auto;
+}
+
+.pelayanan-container{
+    padding: 0 120px;
+}
+
+.disclosure-container{
+    margin: 30px auto;
+}
+
+.pelayanan-item{
+    margin: 0px 3px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+/* End Hero Layanan Section */
+
+/* About Section */
+.about {
+    background: var(--light-gray);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.vision-mission {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.vision,
+.mission {
+    flex: 1;
+    background: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.vision h3,
+.mission h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.vision h3 i,
+.mission h3 i {
+    margin-right: 10px;
+}
+
+.mission div ul{
+    padding-left: 20px;
+}
+
+/* Services Section */
+.services {
+    background: var(--white);
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.filter-chip {
+    padding: 8px 20px;
+    background: var(--light-gray);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-chip.active,
+.filter-chip:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    /* Tambahan untuk ikon */
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* MODIFIKASI CSS: Ganti Image dengan Ikon */
+.service-image {
+    height: 150px; /* Ketinggian baru untuk wadah ikon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-blue); /* Latar belakang untuk ikon */
+}
+
+.service-icon {
+    font-size: 4rem; /* Ukuran ikon */
+    color: var(--white);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: rotate(5deg) scale(1.1);
+}
+/* Akhir MODIFIKASI CSS */
+
+.service-content {
+    padding: 25px;
+}
+
+.service-content h3 {
+    color: var(--secondary-blue);
+    margin-bottom: 10px;
+    text-align: center; /* Tambahan untuk ikon */
+}
+
+.service-meta {
+    display: flex;
+    justify-content: center; /* Tambahan untuk ikon */
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+}
+
+/* Certification Section */
+.certification {
+    background: var(--light-gray);
+}
+
+.search-container {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-box {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 30px;
+    font-size: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.search-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-blue);
+}
+
+.certification-table-container {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow-x: auto; /* Memastikan tabel responsif */
+}
+
+table {
+    width: 100%;
+    min-width: 500px; /* Lebar minimum agar tidak terlalu sempit di mobile */
+    border-collapse: collapse;
+}
+
+thead {
+    background: var(--secondary-blue);
+    color: var(--white);
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+tbody tr {
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+tbody tr:hover {
+    background: rgba(0, 102, 204, 0.05);
+}
+
+/* PERBAIKAN RESPONSIVITAS PAGINATION */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 5px; /* Mengurangi jarak antar tombol di mobile */
+    flex-wrap: wrap; /* BARU: Memungkinkan tombol turun ke baris baru */
+    padding: 0 10px; /* Sedikit padding horizontal */
+}
+
+.pagination button {
+    padding: 8px 12px; /* Mengurangi padding horizontal di mobile */
+    background: var(--white);
+    border: 1px solid var(--medium-gray);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 40px; /* Memastikan tombol cukup lebar */
+}
+
+.pagination button.active,
+.pagination button:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+}
+/* AKHIR PERBAIKAN PAGINATION */
+
+/* Quick View Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    animation: modalFade 0.3s ease;
+}
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--black);
+}
+
+/* Gallery Section */
+.gallery {
+    background: var(--white);
+}
+
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.gallery-filter-btn {
+    padding: 8px 20px;
+    background: var(--light-gray);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.gallery-filter-btn.active,
+.gallery-filter-btn:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.masonry-grid {
+    column-count: 3;
+    column-gap: 20px;
+}
+
+.grid-item {
+    width: 373px;
+    height: 279px;
+    background-color: red;
+    position: relative;
+    border-radius: 10px;
+    break-inside: avoid;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* .galery-image{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+} */
+
+.grid-item:hover {
+    transform: scale(1.03);
+}
+
+.grid-item img {
+    /* width: 100%;
+    height: auto;
+    display: block; */
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--white);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* ======================================= */
+/* New: Client Section Styles */
+/* ======================================= */
+.clients {
+    padding: 60px 0;
+    background: var(--white);
+}
+
+.clients-slider {
+    overflow: hidden; /* Penting untuk menyembunyikan logo yang berada di luar batas */
+    position: relative;
+    padding: 20px 0; /* Padding vertikal untuk jarak */
+}
+
+.clients-track {
+    display: flex;
+    width: fit-content; /* Harus cukup lebar untuk menampung semua logo */
+    animation: scroll-clients 30s linear infinite; /* Animasi gerak */
+}
+
+.client-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px; /* Lebar minimum per logo container */
+    margin: 0 30px; /* Jarak antar logo */
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0; /* Pastikan container tidak menyusut */
+}
+
+.client-logo-container:hover {
+    opacity: 1;
+}
+
+.client-logo {
+    width: 120px; /* Ukuran logo */
+    height: 120px;
+    object-fit: contain; /* Agar gambar tidak terdistorsi */
+    border-radius: 50%; /* Membuat logo menjadi bulat */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 10px; /* Sedikit padding di dalam lingkaran */
+    background-color: var(--white);
+    border: 2px solid var(--medium-gray);
+    transition: transform 0.3s ease;
+}
+
+.client-logo-container:hover .client-logo {
+    transform: scale(1.05);
+    border-color: var(--primary-blue);
+}
+
+/* Keyframes untuk animasi scroll */
+@keyframes scroll-clients {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Menggeser sebanyak setengah dari total logo (yang diduplikasi) */
+    }
+}
+/* End Client Section Styles */
+/* ======================================= */
+
+/* Contact Section */
+.contact {
+    background: var(--light-gray);
+}
+
+.contact-container {
+    display: flex;
+    gap: 50px;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-details {
+    margin-top: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.contact-item i {
+    color: var(--primary-blue);
+    margin-right: 15px;
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+.contact-form {
+    flex: 1;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25d366;
+    color: var(--white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* Footer */
+footer {
+    background: var(--secondary-blue);
+    color: var(--white);
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-column h3 {
+    color: var(--white);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-column h3:after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--primary-blue);
+    margin-top: 8px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: var(--white);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--primary-blue);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+
+    .about-content,
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .vision-mission {
+        flex-direction: column;
+    }
+}
+
+/* Start Layanan Kami */
+.disclosure{border-radius:8px;overflow:hidden;border:1px solid #e6edf3;margin-bottom:12px;transition:all 0.3s ease;}
+.disclosure__btn{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 16px;
+    background:transparent;
+    border:0;
+    cursor:pointer;
+    font-weight:600;
+    font-size:14px;
+}
+.disclosure__btn:focus{outline:3px solid rgba(15,98,254,0.12);outline-offset:2px}
+
+.disclosure_btn_text{
+    width:80%;
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
+    overflow: hidden;    /* Hides any text that overflows the element's box */
+    text-overflow: ellipsis; /* Displays an ellipsis for truncated text */
+    text-align: left;
+}
+
+.icon{width:20px;height:20px;position:relative;transition:transform .3s ease;}
+.icon::before, .icon::after{content:'';position:absolute;top:50%;left:50%;background:#111;transition:all .3s ease;}
+.icon::before{width:12px;height:2px;transform:translate(-50%, -50%);} /* garis horizontal */
+.icon::after{width:2px;height:12px;transform:translate(-50%, -50%);} /* garis vertikal */
+
+
+.disclosure[aria-expanded="true"] .icon::after{height:0;} /* jadi minus saat terbuka */
+
+
+.panel-wrap{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(0.25, 1, 0.5, 1), padding .3s ease;}
+.panel{padding:0 16px 16px 16px;color:var(--muted);line-height:1.6;opacity:0;transform:translateY(-5px);transition:opacity .35s ease, transform .35s ease;}
+
+
+.disclosure[aria-expanded="true"] .panel-wrap{max-height:400px;padding-top:8px;}
+.disclosure[aria-expanded="true"] .panel{opacity:1;transform:translateY(0);}
+
+
+.hint{font-size:13px;color:var(--muted);margin-top:10px}
+/* End Layanan Kami */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    .header-container {
+        padding: 0px 20px 0px 0px;
+    }
+
+    .menu-list{
+        display: none;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .mobile-menu-btn {
+        display: inline;
+        width: 21px;
+        height: 32px;
+        margin-right: 0px;
+    }
+
+    .language-switcher {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+
+    /* MODIFIKASI: Hero Section for Carousel */
+    .hero {
+        height: 85vh;
+        background: var(--secondary-blue); /* Fallback */
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        position: relative;
+        overflow: hidden; /* Penting untuk mengelola gambar di dalamnya */
+    }
+
+    .btn {
+        width: 100%;
+        display: inline-block;
+        background: var(--primary-blue);
+        color: var(--white);
+        padding: 12px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 700px;
+        margin: 0 20px;
+        padding: 0 20px;
+        position: relative;
+        z-index: 3; /* Pastikan konten di atas gambar dan overlay */
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Hero layanan Section */
+    .hero-layanan {
+        height: 260px;
+        background: var(--secondary-blue); /* Fallback */
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        color: var(--white);
+        position: relative;
+        overflow: hidden; /* Penting untuk mengelola gambar di dalamnya */
+    }
+
+    .hero-layanan-content {
+        max-width: 100%;
+        margin: 0 20px;
+        padding: 0 20px;
+        position: relative;
+        z-index: 3; /* Pastikan konten di atas gambar dan overlay */
+    }
+
+    .bnsp-logo{
+        width: 194px;
+        height: 66px;
+        margin: 0 auto;
+    }
+
+    .iadc-logo{
+        width: 224px;
+        height: 66px;
+        margin: 0 auto;
+    }
+
+    .pelayanan-container{
+        padding: 0 20px;
+    }
+
+    .hero-layanan h1 {
+        font-size: 2rem;
+        color: var(--white);
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .masonry-grid {
+        column-count: 1;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+     /* Responsive Logo */
+     .logo-image {
+        height: 74px; /* Sedikit lebih kecil di mobile */
+    }
+
+    /* Responsive adjustments for client logos */
+    .client-logo-container {
+        min-width: 150px;
+        margin: 0 20px;
+    }
+    .client-logo {
+        width: 100px;
+        height: 100px;
+    }
+    /* Mengurangi kecepatan di tampilan mobile */
+    .clients-track {
+        animation-duration: 40s;
+    }
+}
+
+@media (max-width: 576px) {
+    section {
+        padding: 60px 0;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .service-card,
+    .vision,
+    .mission {
+        padding: 20px;
+    }
+}
