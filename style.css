@@ -1047,9 +1047,27 @@ footer {
 
 /* Start Layanan Kami */
 .disclosure{border-radius:8px;overflow:hidden;border:1px solid #e6edf3;margin-bottom:12px;transition:all 0.3s ease;}
-.disclosure__btn{width:100%;display:flex;align-items:center;gap:10px;padding:14px 16px;background:transparent;border:0;cursor:pointer;font-weight:600;font-size:14px}
+.disclosure__btn{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 16px;
+    background:transparent;
+    border:0;
+    cursor:pointer;
+    font-weight:600;
+    font-size:14px;
+}
 .disclosure__btn:focus{outline:3px solid rgba(15,98,254,0.12);outline-offset:2px}
 
+.disclosure_btn_text{
+    width:80%;
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
+    overflow: hidden;    /* Hides any text that overflows the element's box */
+    text-overflow: ellipsis; /* Displays an ellipsis for truncated text */
+    text-align: left;
+}
 
 .icon{width:20px;height:20px;position:relative;transition:transform .3s ease;}
 .icon::before, .icon::after{content:'';position:absolute;top:50%;left:50%;background:#111;transition:all .3s ease;}
