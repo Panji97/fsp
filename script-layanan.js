@@ -277,12 +277,54 @@ const closeLightboxBtn = document.querySelector('.close-lightbox')
 const contactForm = document.getElementById('contactForm')
 const idLangBtn = document.getElementById('id-lang')
 const enLangBtn = document.getElementById('en-lang')
+const idLangBtnMobile = document.getElementById('id-lang-mobile')
+const enLangBtnMobile = document.getElementById('en-lang-mobile')
 const clientsTrack = document.getElementById('clients-track') // NEW DOM ELEMENT
 
 // Mobile Menu Toggle
 mobileMenuBtn.addEventListener('click', () => {
     navMenu.classList.toggle('show')
 })
+
+
+function redirectToEnglish() {
+    const { pathname, origin, search, hash } = window.location;
+    let newPath = pathname;
+
+    // Ensure we don’t add '/en' twice
+    if (!pathname.includes('/en')) {
+      // Add '/en' at the start for cleaner structure
+      newPath = pathname.endsWith('/')
+        ? pathname + 'en'
+        : pathname + '/en';
+    }
+
+    // Build full URL
+    const newUrl = new URL(origin + newPath + search + hash);
+
+    // Redirect only if different
+    if (newUrl.href !== window.location.href) {
+      window.location.href = newUrl.href;
+    }
+}
+
+function redirectToBahasa() {
+    const { pathname, origin, search, hash } = window.location;
+    let newPath = pathname;
+
+    if (pathname.includes('/en')) {
+      // Remove only leading or trailing '/en' safely
+      newPath = pathname.replace(/\/en(\/)?$/, '').replace(/^\/en(\/)?/, '/');
+      if (newPath === '') newPath = '/'; // fallback if root path
+    }
+
+    const newUrl = new URL(origin + newPath + search + hash);
+
+    if (newUrl.href !== window.location.href) {
+      window.location.href = newUrl.href;
+    }
+}
+
 
 // Language Switcher
 if (idLangBtn) {
@@ -291,6 +333,7 @@ if (idLangBtn) {
         enLangBtn.classList.remove('active')
         // In a real implementation, you would change the content to Indonesian
         console.log('Switched to Indonesian')
+        redirectToBahasa()
     })
 }
 
@@ -300,8 +343,48 @@ if (enLangBtn) {
         idLangBtn.classList.remove('active')
         // In a real implementation, you would change the content to English
         console.log('Switched to English')
+        redirectToEnglish()
     })
 }
+
+// Language Switcher mobile
+if (idLangBtnMobile) {
+    idLangBtnMobile.addEventListener('click', () => {
+        idLangBtnMobile.classList.add('active')
+        enLangBtnMobile.classList.remove('active')
+        // In a real implementation, you would change the content to Indonesian
+        console.log('Switched to Indonesian')
+        redirectToBahasa()
+    })
+}
+
+if (enLangBtnMobile) {
+    enLangBtnMobile.addEventListener('click', () => {
+        enLangBtnMobile.classList.add('active')
+        idLangBtnMobile.classList.remove('active')
+        // In a real implementation, you would change the content to English
+        console.log('Switched to English')
+        redirectToEnglish()
+    })
+}
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    const { pathname, origin, search, hash } = window.location;
+    let newPath;
+
+    if (pathname.includes('/en')) {
+        enLangBtn.classList.add('active')
+        enLangBtnMobile.classList.add('active')
+        idLangBtn.classList.remove('active')
+        idLangBtnMobile.classList.remove('active')
+    } else {
+        enLangBtn.classList.remove('active')
+        enLangBtnMobile.classList.remove('active')
+        idLangBtn.classList.add('active')
+        idLangBtnMobile.classList.add('active')
+    }
+});
 
 // Contact Form Submission
 contactForm.addEventListener('submit', (e) => {
