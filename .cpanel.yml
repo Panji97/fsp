@@ -8,3 +8,4 @@ deployment:
         - /bin/cp script-layanan.js $DEPLOYPATH
         - /bin/cp -R images $DEPLOYPATH
         - /bin/cp -R layanan-kami $DEPLOYPATH
+        - /bin/cp -R en $DEPLOYPATH
