@@ -2,6 +2,24 @@
 const heroImages = document.querySelectorAll('.hero-image')
 let currentImageIndex = 0
 
+// ---- COOKIE HELPERS ----
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Strict`;
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+function deleteCookie(name) {
+    document.cookie = `${name}=; max-age=0; path=/;`;
+}
+
 function changeHeroBackground() {
     // Sembunyikan semua gambar
     heroImages.forEach((img) => img.classList.remove('active'))
@@ -167,6 +185,14 @@ const clientLogos = [
 // DOM Elements
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn')
 const navMenu = document.querySelector('nav ul')
+
+const homeMenu = document.getElementById('home-menu')
+const aboutMenu = document.getElementById('about-menu')
+const serviceMenu = document.getElementById('service-menu')
+
+const home = document.getElementById('home')
+const about = document.getElementById('about')
+
 const filterChips = document.querySelectorAll('.filter-chip')
 const servicesGrid = document.querySelector('.services-grid')
 const certificationTableBody = document.getElementById('certification-table-body')
@@ -274,10 +300,64 @@ if (enLangBtnMobile) {
     })
 }
 
+// const homeMenu = document.getElementById('home-menu')
+// const aboutMenu = document.getElementById('about-menu')
+// const serviceMenu = document.getElementById('service-menu')
+
+// scroll to section
+function handleScrollTo(targetElement) {
+    if (targetElement) {
+        console.log("targetElement :", targetElement)
+        window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+        })
+
+        // Close mobile menu if open
+        navMenu.classList.remove('show')
+    }
+}
+
 
 window.addEventListener('DOMContentLoaded', () => {
     const { pathname, origin, search, hash } = window.location;
-    let newPath;
+    const menuActive = getCookie("menu-active")
+    // Select only the #home and #about sections
+    const sections = [
+        document.getElementById("home"),
+        document.getElementById("about")
+    ];
+
+    // Select only the corresponding menu links
+    const navLinks = {
+        home: document.getElementById("home-menu"),
+        about: document.getElementById("about-menu"),
+    };
+
+    // Helper function to remove active class
+    const removeActive = () => {
+        Object.values(navLinks).forEach(link => link.classList.remove("menu-active"));
+    };
+
+    // menu aktif
+    if (menuActive === "home") {
+        homeMenu.classList.add('menu-active')
+        aboutMenu.classList.remove('menu-active')
+        serviceMenu.classList.remove('menu-active')
+        handleScrollTo(home)
+    }
+    if (menuActive === "about") {
+        homeMenu.classList.remove('menu-active')
+        aboutMenu.classList.add('menu-active')
+        serviceMenu.classList.remove('menu-active')
+        handleScrollTo(about)
+    }
+    if (menuActive === "service") {
+        homeMenu.classList.remove('menu-active')
+        aboutMenu.classList.remove('menu-active')
+        serviceMenu.classList.add('menu-active')
+    }
+    // end menu aktif
 
     if (pathname.includes('/en')) {
         enLangBtn.classList.add('active')
@@ -290,7 +370,63 @@ window.addEventListener('DOMContentLoaded', () => {
         idLangBtn.classList.add('active')
         idLangBtnMobile.classList.add('active')
     }
+
+
+    // menu active on scroll
+        // Create the Intersection Observer
+        const observer = new IntersectionObserver(
+            (entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute("id");
+
+                if (entry.isIntersecting) {
+                    console.log("NONONONONONONON")
+                    removeActive();
+                    if (navLinks[id]) {
+                        navLinks[id].classList.add("menu-active")
+                        deleteCookie("menu-active")
+                    };
+                }
+            });
+            },
+            {
+            threshold: 0.5, // triggers when 50% of the section is visible
+            }
+        );
+
+        // Observe each section
+        sections.forEach(section => {
+            if (section) observer.observe(section);
+        });
+    // end menu active on scroll
 });
+
+if (homeMenu) {
+    homeMenu.addEventListener('click', () => {
+        homeMenu.classList.add('menu-active')
+        aboutMenu.classList.remove('menu-active')
+        serviceMenu.classList.remove('menu-active')
+        setCookie("menu-active", "home")
+    })
+}
+
+if (aboutMenu) {
+    aboutMenu.addEventListener('click', () => {
+        homeMenu.classList.remove('menu-active')
+        aboutMenu.classList.add('menu-active')
+        serviceMenu.classList.remove('menu-active')
+        setCookie("menu-active", "about")
+    })
+}
+
+if (serviceMenu) {
+    serviceMenu.addEventListener('click', () => {
+        homeMenu.classList.remove('menu-active')
+        aboutMenu.classList.remove('menu-active')
+        serviceMenu.classList.add('menu-active')
+        setCookie("menu-active", "service")
+    })
+}
 
 // Services Filter
 filterChips.forEach((chip) => {

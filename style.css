@@ -173,6 +173,10 @@ nav ul li a:after {
     transition: width 0.3s ease;
 }
 
+.menu-active{
+   color: var(--primary-blue) !important;
+}
+
 nav ul li a:hover:after {
     width: 100%;
 }

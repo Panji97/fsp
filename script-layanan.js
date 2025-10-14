@@ -2,6 +2,24 @@
 const heroImages = document.querySelectorAll('.hero-layanan-image')
 let currentImageIndex = 0
 
+// ---- COOKIE HELPERS ----
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Strict`;
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+function deleteCookie(name) {
+    document.cookie = `${name}=; max-age=0; path=/;`;
+}
+
 function changeHeroBackground() {
     // Sembunyikan semua gambar
     heroImages.forEach((img) => img.classList.remove('active'))
@@ -262,6 +280,9 @@ const clientLogos = [
 // DOM Elements
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn')
 const navMenu = document.querySelector('nav ul')
+const homeMenu = document.getElementById('home-menu')
+const aboutMenu = document.getElementById('about-menu')
+const serviceMenu = document.getElementById('service-menu')
 const filterChips = document.querySelectorAll('.filter-chip')
 const servicesGrid = document.querySelector('.services-grid')
 const certificationTableBody = document.getElementById('certification-table-body')
@@ -371,7 +392,25 @@ if (enLangBtnMobile) {
 
 window.addEventListener('DOMContentLoaded', () => {
     const { pathname, origin, search, hash } = window.location;
-    let newPath;
+    const menuActive = getCookie("menu-active")
+
+    // menu aktif
+    if (menuActive === "home") {
+        homeMenu.classList.add('menu-active')
+        aboutMenu.classList.remove('menu-active')
+        serviceMenu.classList.remove('menu-active')
+    }
+    if (menuActive === "about") {
+        homeMenu.classList.remove('menu-active')
+        aboutMenu.classList.add('menu-active')
+        serviceMenu.classList.remove('menu-active')
+    }
+    if (menuActive === "service") {
+        homeMenu.classList.remove('menu-active')
+        aboutMenu.classList.remove('menu-active')
+        serviceMenu.classList.add('menu-active')
+    }
+    // end menu aktif
 
     if (pathname.includes('/en')) {
         enLangBtn.classList.add('active')
@@ -385,6 +424,33 @@ window.addEventListener('DOMContentLoaded', () => {
         idLangBtnMobile.classList.add('active')
     }
 });
+
+if (homeMenu) {
+    homeMenu.addEventListener('click', () => {
+        homeMenu.classList.add('menu-active')
+        aboutMenu.classList.remove('menu-active')
+        serviceMenu.classList.remove('menu-active')
+        setCookie("menu-active", "home")
+    })
+}
+
+if (aboutMenu) {
+    aboutMenu.addEventListener('click', () => {
+        homeMenu.classList.remove('menu-active')
+        aboutMenu.classList.add('menu-active')
+        serviceMenu.classList.remove('menu-active')
+        setCookie("menu-active", "about")
+    })
+}
+
+if (serviceMenu) {
+    serviceMenu.addEventListener('click', () => {
+        homeMenu.classList.remove('menu-active')
+        aboutMenu.classList.remove('menu-active')
+        serviceMenu.classList.add('menu-active')
+        setCookie("menu-active", "service")
+    })
+}
 
 // Contact Form Submission
 contactForm.addEventListener('submit', (e) => {
@@ -429,7 +495,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header')
     if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 0.95)'
+        // header.style.background = 'rgba(255, 255, 255, 0.95)'
+        header.style.background = 'var(--white)'
         header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)'
     } else {
         header.style.background = 'var(--white)'
