@@ -44,7 +44,7 @@ const certificationsData = [
     { no: 5, name: 'Operator Kran Jembatan' },
     { no: 6, name: 'Ahli Juru Ikat (Rigging)' },
     { no: 7, name: 'Operator Forklift' },
-    { no: 8, name: 'Pengeboran Darat' },
+    { no: 8, name: 'Pengelasan Darat' },
     { no: 9, name: 'Juru Bor Darat (Driller)' },
     { no: 10, name: 'Pengoperasian Lantai Bor' },
     { no: 11, name: 'Pengoperasian Menara Bor' },
@@ -54,9 +54,9 @@ const certificationsData = [
     { no: 15, name: 'Operator Menara Perawatan Sumur' },
     { no: 16, name: 'Operator Unit Perawatan Sumur' },
     { no: 17, name: 'Ahli Pengendali Perawatan Sumur' },
-    { no: 18, name: 'K3 Migas' },
-    { no: 19, name: 'Operator K3 Industri Migas' },
-    { no: 20, name: 'Pengawas K3 Industri Migas' },
+    { no: 18, name: 'KS Migas' },
+    { no: 19, name: 'Operator KS Industri Migas' },
+    { no: 20, name: 'Pengawas KS Industri Migas' },
     { no: 21, name: 'Laboratorium Pengujian Migas' },
     { no: 22, name: 'Operator Pengujian Minyak Lumas' },
     { no: 23, name: 'Scaffolding' },
@@ -64,11 +64,11 @@ const certificationsData = [
     { no: 25, name: 'Operator Scaffolding' },
     { no: 26, name: 'Teknisi Maintenance & Repair' },
     { no: 27, name: 'Quality Control' },
-    { no: 28, name: 'Pengelobaan SPBU' },
+    { no: 28, name: 'Pengelasan SPBU' },
     { no: 29, name: 'Operator SPBU' },
     { no: 30, name: 'Perawatan Mekanik' },
-    { no: 31, name: 'Teknisii II' },
-    { no: 32, name: 'Teknisii III' },
+    { no: 31, name: 'Teknisi II' },
+    { no: 32, name: 'Teknisi III' },
     { no: 33, name: 'Supervisor' },
     { no: 34, name: 'Instrumentasi dan Kalibrasi' },
     { no: 35, name: 'Teknisi Instrumentasi Tingkat 1' },
@@ -93,29 +93,29 @@ const certificationsData = [
     { no: 54, name: 'Pelaksanaan Audit Energi Bangunan Gedung' },
     { no: 55, name: 'Manajer Energi Industri' },
     { no: 56, name: 'Manajer Energi Bangunan Gedung' },
-    { no: 57, name: 'K3 Umum' },
-    { no: 58, name: 'Ahli K3 Muda' },
-    { no: 59, name: 'Ahli K3 Madya' },
-    { no: 60, name: 'Ahli K3 Utama' },
+    { no: 57, name: 'AS Umum' },
+    { no: 58, name: 'Ahli KS Muda' },
+    { no: 59, name: 'Ahli KS Madya' },
+    { no: 60, name: 'Ahli KS Utama' },
     { no: 61, name: 'Confined Space/Ruang Terbatas' },
     { no: 62, name: 'Ahli Muda Ruang Terbatas' },
     { no: 63, name: 'Teknisi Ruang Terbatas' },
-    { no: 64, name: 'K3 Bekerja di Ketinggian' },
-    { no: 65, name: 'Teknisi K3 Bekerja di Ketinggian' },
+    { no: 64, name: 'KS Bekerja di Ketinggian' },
+    { no: 65, name: 'Teknisi KS Bekerja di Ketinggian' },
     { no: 66, name: 'Gas Tester' },
     { no: 67, name: 'Pengoperasian Gas Tester Industri Migas' },
     { no: 68, name: 'H2S' },
     { no: 69, name: 'Petugas Penanganan Bahaya Gas H2S' },
     { no: 70, name: 'Operasi Produksi Migas' },
     { no: 71, name: 'Pengoperasian Produksi Minyak dan Gas Alam dan Panas Bumi' },
-    { no: 72, name: 'K3 Minerba' },
-    { no: 73, name: 'General Supervisor K3 Minerba' },
+    { no: 72, name: 'GS Minerba' },
+    { no: 73, name: 'General Supervisor KS Minerba' },
     { no: 74, name: 'Pengelasan' },
     { no: 75, name: 'Supervisi Pengelasan' },
     { no: 76, name: 'Perencanaan Pengelasan' },
     { no: 77, name: 'Pengelasan Pipa' },
     { no: 78, name: 'Pengelasan Pelat' },
-    { no: 79, name: 'Inspeksi Pengelasan Basah' },
+    { no: 79, name: 'Inspeksi Pengelasan Dasar' },
     { no: 80, name: 'Inspeksi Pengelasan Komprehensif' },
     { no: 81, name: 'Inspeksi Pengelasan Standar' }
 ]
@@ -184,17 +184,17 @@ const galleryData = [
     }
 ]
 
-// NEW: Data for clients (Dummy data)
+// Data for clients (Original data)
 const clientLogos = [
-    { id: 1, name: 'Client A', image: '/images/PT. Arjuna Petrogas Indonesia.jpeg' }, // Ganti dengan path logo aktual
-    { id: 2, name: 'Client B', image: '/images/PT. Asia Petrocom Service.jpeg' },
-    { id: 3, name: 'Client C', image: '/images/PT. Asrindo Citraseni Satria.jpg' },
-    { id: 4, name: 'Client D', image: '/images/PT. Baker Hughes Indonesia.jpg' },
-    { id: 5, name: 'Client E', image: '/images/PT. Bormindo Nusantara.png' },
-    { id: 6, name: 'Client F', image: '/images/PT. General buditekindo.jpg' },
-    { id: 6, name: 'Client F', image: '/images/⁠PT. Greatwall Drilling Asia Pacific.jpeg' },
-    { id: 6, name: 'Client F', image: '/images/PT. Major Drlling Indonesia.jpeg' },
-    { id: 6, name: 'Client F', image: '/images/PT. Patra Drilling Contractor (Pertamina).jpeg' }
+    { id: 1, name: 'PT. Arjuna Petrogas Indonesia', image: '/images/PT. Arjuna Petrogas Indonesia.jpeg' },
+    { id: 2, name: 'PT. Asia Petrocom Service', image: '/images/PT. Asia Petrocom Service.jpeg' },
+    { id: 3, name: 'PT. Asrindo Citraseni Satria', image: '/images/PT. Asrindo Citraseni Satria.jpg' },
+    { id: 4, name: 'PT. Baker Hughes Indonesia', image: '/images/PT. Baker Hughes Indonesia.jpg' },
+    { id: 5, name: 'PT. Bormindo Nusantara', image: '/images/PT. Bormindo Nusantara.png' },
+    { id: 6, name: 'PT. General Buditekindo', image: '/images/PT. General buditekindo.jpg' },
+    { id: 7, name: 'PT. Greatwall Drilling Asia Pacific', image: '/images/⁠PT. Greatwall Drilling Asia Pacific.jpeg' },
+    { id: 8, name: 'PT. Major Drilling Indonesia', image: '/images/PT. Major Drlling Indonesia.jpeg' },
+    { id: 9, name: 'PT. Patra Drilling Contractor (Pertamina)', image: '/images/PT. Patra Drilling Contractor (Pertamina).jpeg' }
 ]
 
 // DOM Elements
@@ -227,99 +227,245 @@ const idLangBtn = document.getElementById('id-lang')
 const enLangBtn = document.getElementById('en-lang')
 const idLangBtnMobile = document.getElementById('id-lang-mobile')
 const enLangBtnMobile = document.getElementById('en-lang-mobile')
-const clientsTrack = document.getElementById('clients-track') // NEW DOM ELEMENT
+const clientsTrack = document.getElementById('clients-track')
+
+// Language Management
+let currentLanguage = 'id'
+
+// Translation dictionary
+const translations = {
+    id: {
+        // Navigation
+        home: 'Beranda',
+        about: 'Tentang',
+        services: 'Layanan Kami',
+        gallery: 'Galeri',
+        clients: 'Klien Kami',
+        contact: 'Kontak',
+
+        // Hero Section
+        heroTitle: 'Tingkatkan Karier Anda dengan Keunggulan Bersertifikat',
+        heroDescription:
+            'Bersama PT. FAQIB SURYA PERKASA, tingkatkan keterampilan profesional dan kompetensi anda di bidang migas, pertambangan, konstruksi untuk meraih kesuksesan dan peluang karir. Kami menyediakan pelatihan dengan tenaga pengajar yang berpengalaman di bidangnya untuk sertifikasi resmi dari BNSP, KEMNAKER, dan International Association of Drilling Contractor (IADC)',
+        exploreServices: 'Jelajahi Layanan',
+        contactUs: 'Hubungi Kami',
+
+        // About Section
+        aboutTitle: 'Tentang Kami',
+        aboutText1:
+            'PT. Faqib Surya Perkasa berdiri pada tahun 2018 yang didirikan dengan tujuan untuk turut berkontribusi meningkatkan kualitas sumber daya manusia khususnya di dunia Migas dan training lainnya agar mampu membawa perubahan yang signifikan ke arah kemajuan dengan memiliki keunggulan kompetitif agar tercapai performa kerja yang unggul dan optimal.',
+        aboutText2:
+            'Dengan menjalin komunikasi dan hubungan yang harmonis, kami akan menjadi partner yang tepat dalam memberikan layanan terbaik dan akan mampu memberikan kontribusi yang positif bagi perusahaan, serta mampu mengakomodir SDM perusahaan dalam memenuhi kebutuhan perkembangan karir sehingga mampu meningkatkan benefits perusahaan dan value bagi customer.',
+        vision: 'Visi',
+        visionText:
+            'Menjadi penyelenggara training dan sertifikasi yang bisa melayani secara profesional, dan berkomitmen dalam pengembangan sumber daya manusia sesuai dengan kompetensi yang dimiliki dan memberikan kepuasan pelanggan.',
+        mission: 'Misi',
+        mission1: 'Membangun komitmen yang kuat dengan memberikan layanan penyelenggaraan training dan sertifikasi yang terbaik.',
+        mission2: 'Menjadi partner terpercaya bagi perusahaan dan organisasi dalam mengembangkan sumber daya manusia.',
+        mission3: 'Menjadikan para peserta yang kompeten di bidang keahliannya.',
+
+        // Gallery Section
+        galleryTitle: 'Galeri',
+        all: 'Semua',
+        training: 'Training',
+        companyEvents: 'Acara Perusahaan',
+
+        // Clients Section
+        clientsTitle: 'Klien Kami',
+
+        // Contact Section
+        contactTitle: 'Kontak Kami',
+        contactInfo: 'Informasi Kontak',
+        contactDescription: 'Hubungi kami untuk informasi lebih lanjut mengenai layanan training dan sertifikasi.',
+        address: 'Alamat',
+        phone: 'Telepon',
+        email: 'Email',
+        sendMessage: 'Kirim Pesan',
+        fullName: 'Nama Lengkap',
+        message: 'Pesan',
+
+        // Footer
+        servicesFooter: 'Layanan',
+        trainingCertification: 'Training & Sertifikasi',
+        bnspCertification: 'Sertifikasi BNSP',
+        iadcCertification: 'Sertifikasi IADC',
+        kemenakerCertification: 'Sertifikasi Kemenaker',
+        leadershipTraining: 'Leadership Training',
+        quickLinks: 'Link Cepat',
+        allRightsReserved: 'All Rights Reserved.',
+
+        // Form Messages
+        formSuccess: 'Pesan Anda telah berhasil dikirim! Kami akan menghubungi Anda segera.'
+    },
+    en: {
+        // Navigation
+        home: 'Home',
+        about: 'About',
+        services: 'Our Services',
+        gallery: 'Gallery',
+        clients: 'Our Clients',
+        contact: 'Contact',
+
+        // Hero Section
+        heroTitle: 'Empower Your Career with Certified Excellence',
+        heroDescription:
+            'With PT. FAQIB SURYA PERKASA, enhance your professional skills and competencies in oil & gas, mining, and construction to achieve success and career opportunities. We provide training with experienced instructors in their fields for official certifications from BNSP, KEMNAKER, and International Association of Drilling Contractor (IADC)',
+        exploreServices: 'Explore Services',
+        contactUs: 'Contact Us',
+
+        // About Section
+        aboutTitle: 'About Us',
+        aboutText1:
+            'PT. Faqib Surya Perkasa was established in 2018 with the aim of contributing to improving the quality of human resources, especially in the oil & gas sector and other training fields, to bring significant changes towards progress with competitive advantages to achieve excellent and optimal work performance.',
+        aboutText2:
+            'By establishing harmonious communication and relationships, we will become the right partner in providing the best services and will be able to make positive contributions to companies, as well as accommodate company human resources in meeting career development needs, thereby increasing company benefits and value for customers.',
+        vision: 'Vision',
+        visionText:
+            'To become a training and certification organizer that can serve professionally and be committed to developing human resources according to their competencies and providing customer satisfaction.',
+        mission: 'Mission',
+        mission1: 'Build strong commitment by providing the best training and certification services.',
+        mission2: 'Become a trusted partner for companies and organizations in developing human resources.',
+        mission3: 'Make participants competent in their fields of expertise.',
+
+        // Gallery Section
+        galleryTitle: 'Gallery',
+        all: 'All',
+        training: 'Training',
+        companyEvents: 'Company Events',
+
+        // Clients Section
+        clientsTitle: 'Our Clients',
+
+        // Contact Section
+        contactTitle: 'Contact Us',
+        contactInfo: 'Contact Information',
+        contactDescription: 'Contact us for more information about our training and certification services.',
+        address: 'Address',
+        phone: 'Phone',
+        email: 'Email',
+        sendMessage: 'Send Message',
+        fullName: 'Full Name',
+        message: 'Message',
+
+        // Footer
+        servicesFooter: 'Services',
+        trainingCertification: 'Training & Certification',
+        bnspCertification: 'BNSP Certification',
+        iadcCertification: 'IADC Certification',
+        kemenakerCertification: 'Kemenaker Certification',
+        leadershipTraining: 'Leadership Training',
+        quickLinks: 'Quick Links',
+        allRightsReserved: 'All Rights Reserved.',
+
+        // Form Messages
+        formSuccess: 'Your message has been sent successfully! We will contact you soon.'
+    }
+}
+
+// Function to translate the page
+function translatePage(language) {
+    const elements = document.querySelectorAll('[data-translate]')
+
+    elements.forEach((element) => {
+        const key = element.getAttribute('data-translate')
+        if (translations[language][key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translations[language][key]
+            } else {
+                element.textContent = translations[language][key]
+            }
+        }
+    })
+
+    // Update specific elements without data-translate attribute
+    const heroTitle = document.querySelector('.hero h1')
+    const heroDescription = document.querySelector('.hero p')
+    const aboutTitle = document.querySelector('.about h2')
+    const aboutText1 = document.querySelector('.about-text p:nth-child(1)')
+    const aboutText2 = document.querySelector('.about-text p:nth-child(2)')
+    const visionText = document.querySelector('.vision p')
+    const missionItems = document.querySelectorAll('.mission li')
+    const galleryTitle = document.querySelector('.gallery h2')
+    const clientsTitle = document.querySelector('.clients h2')
+    const contactTitle = document.querySelector('.contact h2')
+    const contactInfo = document.querySelector('.contact-info h3')
+    const contactDescription = document.querySelector('.contact-info p')
+    const sendMessage = document.querySelector('.contact-form h3')
+
+    if (heroTitle) heroTitle.textContent = translations[language]['heroTitle']
+    if (heroDescription) heroDescription.textContent = translations[language]['heroDescription']
+    if (aboutTitle) aboutTitle.textContent = translations[language]['aboutTitle']
+    if (aboutText1) aboutText1.textContent = translations[language]['aboutText1']
+    if (aboutText2) aboutText2.textContent = translations[language]['aboutText2']
+    if (visionText) visionText.textContent = translations[language]['visionText']
+    if (missionItems[0]) missionItems[0].textContent = translations[language]['mission1']
+    if (missionItems[1]) missionItems[1].textContent = translations[language]['mission2']
+    if (missionItems[2]) missionItems[2].textContent = translations[language]['mission3']
+    if (galleryTitle) galleryTitle.textContent = translations[language]['galleryTitle']
+    if (clientsTitle) clientsTitle.textContent = translations[language]['clientsTitle']
+    if (contactTitle) contactTitle.textContent = translations[language]['contactTitle']
+    if (contactInfo) contactInfo.textContent = translations[language]['contactInfo']
+    if (contactDescription) contactDescription.textContent = translations[language]['contactDescription']
+    if (sendMessage) sendMessage.textContent = translations[language]['sendMessage']
+}
 
 // Mobile Menu Toggle
 mobileMenuBtn.addEventListener('click', () => {
     navMenu.classList.toggle('show')
 })
 
-function redirectToEnglish() {
-    const { pathname, origin, search, hash } = window.location
-    let newPath = pathname
-
-    // Ensure we don’t add '/en' twice
-    if (!pathname.includes('/en')) {
-        // Add '/en' at the start for cleaner structure
-        newPath = pathname.endsWith('/') ? pathname + 'en' : pathname + '/en'
-    }
-
-    // Build full URL
-    const newUrl = new URL(origin + newPath + search + hash)
-
-    // Redirect only if different
-    if (newUrl.href !== window.location.href) {
-        window.location.href = newUrl.href
-    }
-}
-
-function redirectToBahasa() {
-    const { pathname, origin, search, hash } = window.location
-    let newPath = pathname
-
-    if (pathname.includes('/en')) {
-        // Remove only leading or trailing '/en' safely
-        newPath = pathname.replace(/\/en(\/)?$/, '').replace(/^\/en(\/)?/, '/')
-        if (newPath === '') newPath = '/' // fallback if root path
-    }
-
-    const newUrl = new URL(origin + newPath + search + hash)
-
-    if (newUrl.href !== window.location.href) {
-        window.location.href = newUrl.href
-    }
-}
-
 // Language Switcher
 if (idLangBtn) {
     idLangBtn.addEventListener('click', () => {
-        idLangBtn.classList.add('active')
-        enLangBtn.classList.remove('active')
-        // In a real implementation, you would change the content to Indonesian
-        console.log('Switched to Indonesian')
-        redirectToBahasa()
+        switchLanguage('id')
     })
 }
 
 if (enLangBtn) {
     enLangBtn.addEventListener('click', () => {
-        enLangBtn.classList.add('active')
-        idLangBtn.classList.remove('active')
-        // In a real implementation, you would change the content to English
-        console.log('Switched to English')
-        redirectToEnglish()
+        switchLanguage('en')
     })
 }
 
 // Language Switcher mobile
 if (idLangBtnMobile) {
     idLangBtnMobile.addEventListener('click', () => {
-        idLangBtnMobile.classList.add('active')
-        enLangBtnMobile.classList.remove('active')
-        // In a real implementation, you would change the content to Indonesian
-        console.log('Switched to Indonesian')
-        redirectToBahasa()
+        switchLanguage('id')
     })
 }
 
 if (enLangBtnMobile) {
     enLangBtnMobile.addEventListener('click', () => {
-        enLangBtnMobile.classList.add('active')
-        idLangBtnMobile.classList.remove('active')
-        // In a real implementation, you would change the content to English
-        console.log('Switched to English')
-        redirectToEnglish()
+        switchLanguage('en')
     })
 }
 
-// const homeMenu = document.getElementById('home-menu')
-// const aboutMenu = document.getElementById('about-menu')
-// const serviceMenu = document.getElementById('service-menu')
+function switchLanguage(lang) {
+    currentLanguage = lang
+
+    // Update active buttons
+    document.querySelectorAll('.language-switcher button, .language-switcher-mobile button').forEach((btn) => {
+        btn.classList.remove('active')
+    })
+
+    if (lang === 'id') {
+        idLangBtn.classList.add('active')
+        idLangBtnMobile.classList.add('active')
+    } else {
+        enLangBtn.classList.add('active')
+        enLangBtnMobile.classList.add('active')
+    }
+
+    // Translate page
+    translatePage(lang)
+
+    // Save preference to localStorage
+    localStorage.setItem('preferredLanguage', lang)
+}
 
 // scroll to section
 function handleScrollTo(targetElement) {
     if (targetElement) {
-        console.log('targetElement :', targetElement)
         window.scrollTo({
             top: targetElement.offsetTop - 80,
             behavior: 'smooth'
@@ -330,9 +476,14 @@ function handleScrollTo(targetElement) {
     }
 }
 
+// Initialize language on page load
 window.addEventListener('DOMContentLoaded', () => {
+    const savedLanguage = localStorage.getItem('preferredLanguage') || 'id'
+    switchLanguage(savedLanguage)
+
     const { pathname, origin, search, hash } = window.location
     const menuActive = getCookie('menu-active')
+
     // Select only the #home and #about sections
     const sections = [document.getElementById('home'), document.getElementById('about')]
 
@@ -367,27 +518,13 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     // end menu aktif
 
-    if (pathname.includes('/en')) {
-        enLangBtn.classList.add('active')
-        enLangBtnMobile.classList.add('active')
-        idLangBtn.classList.remove('active')
-        idLangBtnMobile.classList.remove('active')
-    } else {
-        enLangBtn.classList.remove('active')
-        enLangBtnMobile.classList.remove('active')
-        idLangBtn.classList.add('active')
-        idLangBtnMobile.classList.add('active')
-    }
-
     // menu active on scroll
-    // Create the Intersection Observer
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 const id = entry.target.getAttribute('id')
 
                 if (entry.isIntersecting) {
-                    console.log('NONONONONONONON')
                     removeActive()
                     if (navLinks[id]) {
                         navLinks[id].classList.add('menu-active')
@@ -397,7 +534,7 @@ window.addEventListener('DOMContentLoaded', () => {
             })
         },
         {
-            threshold: 0.5 // triggers when 50% of the section is visible
+            threshold: 0.5
         }
     )
 
@@ -433,143 +570,6 @@ if (serviceMenu) {
         serviceMenu.classList.add('menu-active')
         setCookie('menu-active', 'service')
     })
-}
-
-// Services Filter
-filterChips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-        // Remove active class from all chips
-        filterChips.forEach((c) => c.classList.remove('active'))
-        // Add active class to clicked chip
-        chip.classList.add('active')
-
-        const filterValue = chip.getAttribute('data-filter')
-        filterServices(filterValue)
-    })
-})
-
-// Certification Table with Pagination
-const itemsPerPage = 10
-let currentPage = 1
-let filteredCertifications = [...certificationsData]
-
-function renderCertificationTable(page = 1) {
-    certificationTableBody.innerHTML = ''
-
-    const startIndex = (page - 1) * itemsPerPage
-    const endIndex = startIndex + itemsPerPage
-    const paginatedItems = filteredCertifications.slice(startIndex, endIndex)
-
-    paginatedItems.forEach((cert) => {
-        const row = document.createElement('tr')
-        row.innerHTML = `
-        <td>${cert.no}</td>
-        <td>${cert.name}</td>
-    `
-
-        row.addEventListener('click', () => {
-            showCertificationModal(cert)
-        })
-
-        certificationTableBody.appendChild(row)
-    })
-
-    renderPagination()
-}
-
-function renderPagination() {
-    paginationContainer.innerHTML = ''
-
-    const totalPages = Math.ceil(filteredCertifications.length / itemsPerPage)
-
-    // Previous button
-    const prevButton = document.createElement('button')
-    prevButton.innerHTML = '&laquo;'
-    prevButton.disabled = currentPage === 1
-    prevButton.addEventListener('click', () => {
-        if (currentPage > 1) {
-            currentPage--
-            renderCertificationTable(currentPage)
-        }
-    })
-    paginationContainer.appendChild(prevButton)
-
-    // Page buttons
-    // Tampilkan hanya tombol-tombol yang relevan (misalnya 3 di kiri dan 3 di kanan dari halaman saat ini, ditambah awal dan akhir)
-    let startPage, endPage
-    if (totalPages <= 7) {
-        // Jika total halaman kurang dari 7, tampilkan semua tombol
-        startPage = 1
-        endPage = totalPages
-    } else {
-        // Jika total halaman lebih dari 7, gunakan elipsis
-        if (currentPage <= 4) {
-            startPage = 1
-            endPage = 5
-        } else if (currentPage + 2 >= totalPages) {
-            startPage = totalPages - 4
-            endPage = totalPages
-        } else {
-            startPage = currentPage - 2
-            endPage = currentPage + 2
-        }
-    }
-
-    // Logika untuk menampilkan tombol di awal (1)
-    if (startPage > 1) {
-        const firstPageButton = document.createElement('button')
-        firstPageButton.textContent = 1
-        firstPageButton.addEventListener('click', () => {
-            currentPage = 1
-            renderCertificationTable(currentPage)
-        })
-        paginationContainer.appendChild(firstPageButton)
-        if (startPage > 2) {
-            const ellipsis = document.createElement('span')
-            ellipsis.textContent = '...'
-            paginationContainer.appendChild(ellipsis)
-        }
-    }
-
-    // Tombol-tombol halaman utama
-    for (let i = startPage; i <= endPage; i++) {
-        const pageButton = document.createElement('button')
-        pageButton.textContent = i
-        pageButton.className = i === currentPage ? 'active' : ''
-        pageButton.addEventListener('click', () => {
-            currentPage = i
-            renderCertificationTable(currentPage)
-        })
-        paginationContainer.appendChild(pageButton)
-    }
-
-    // Logika untuk menampilkan tombol di akhir (totalPages)
-    if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-            const ellipsis = document.createElement('span')
-            ellipsis.textContent = '...'
-            paginationContainer.appendChild(ellipsis)
-        }
-        const lastPageButton = document.createElement('button')
-        lastPageButton.textContent = totalPages
-        lastPageButton.addEventListener('click', () => {
-            currentPage = totalPages
-            renderCertificationTable(currentPage)
-        })
-        paginationContainer.appendChild(lastPageButton)
-    }
-
-    // Next button
-    const nextButton = document.createElement('button')
-    nextButton.innerHTML = '&raquo;'
-    nextButton.disabled = currentPage === totalPages
-    nextButton.addEventListener('click', () => {
-        if (currentPage < totalPages) {
-            currentPage++
-            renderCertificationTable(currentPage)
-        }
-    })
-    paginationContainer.appendChild(nextButton)
 }
 
 // Gallery Filter
@@ -632,13 +632,13 @@ window.addEventListener('click', (e) => {
 // Initialize gallery
 renderGallery(galleryData)
 
-// NEW: Function to render client logos
+// Function to render client logos
 function renderClients() {
     if (!clientsTrack) return
 
-    clientsTrack.innerHTML = '' // Bersihkan sebelum render
+    clientsTrack.innerHTML = ''
 
-    // Duplikasi data logo agar animasi scroll lancar
+    // Duplicate data logo untuk animasi scroll lancar
     const allLogos = [...clientLogos, ...clientLogos]
 
     allLogos.forEach((client) => {
@@ -665,8 +665,10 @@ contactForm.addEventListener('submit', (e) => {
     // In a real implementation, you would send this data to a server
     console.log('Form submitted:', { name, email, message })
 
-    // Show success message
-    alert('Pesan Anda telah berhasil dikirim! Kami akan menghubungi Anda segera.')
+    // Show success message in current language
+    const successMessage = currentLanguage === 'id' ? 'Pesan Anda telah berhasil dikirim! Kami akan menghubungi Anda segera.' : 'Your message has been sent successfully! We will contact you soon.'
+
+    alert(successMessage)
 
     // Reset form
     contactForm.reset()
@@ -730,29 +732,3 @@ fadeElements.forEach((element) => {
 window.addEventListener('scroll', fadeInOnScroll)
 // Trigger once on load
 fadeInOnScroll()
-
-// Start Layanan Kami
-const disclosures = document.querySelectorAll('.disclosure')
-
-disclosures.forEach((disc) => {
-    const btn = disc.querySelector('.disclosure__btn')
-    const panel = disc.querySelector('.panel-wrap')
-
-    function setOpen(isOpen) {
-        disc.setAttribute('aria-expanded', String(isOpen))
-        btn.setAttribute('aria-expanded', String(isOpen))
-        panel.setAttribute('aria-hidden', String(!isOpen))
-        if (isOpen) {
-            const h = panel.scrollHeight
-            panel.style.maxHeight = h + 'px'
-        } else {
-            panel.style.maxHeight = 0
-        }
-    }
-
-    btn.addEventListener('click', () => {
-        const open = disc.getAttribute('aria-expanded') === 'true'
-        setOpen(!open)
-    })
-})
-// End Layanan Kami

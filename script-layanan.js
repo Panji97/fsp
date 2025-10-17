@@ -4,20 +4,20 @@ let currentImageIndex = 0
 
 // ---- COOKIE HELPERS ----
 function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Strict`;
+    const date = new Date()
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000)
+    const expires = 'expires=' + date.toUTCString()
+    document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Strict`
 }
 
 function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
+    const value = `; ${document.cookie}`
+    const parts = value.split(`; ${name}=`)
+    if (parts.length === 2) return parts.pop().split(';').shift()
 }
 
 function deleteCookie(name) {
-    document.cookie = `${name}=; max-age=0; path=/;`;
+    document.cookie = `${name}=; max-age=0; path=/;`
 }
 
 function changeHeroBackground() {
@@ -132,14 +132,14 @@ const servicesData = [
 
 // Data for BNSP certifications
 const certificationsData = [
-    { no: 1, name: 'Inspektur Rfg' },
+    { no: 1, name: 'Inspektur Rig' },
     { no: 2, name: 'Operator Pesawat Angkat' },
     { no: 3, name: 'Operator Kran Mobil' },
     { no: 4, name: 'Operator Kran Putar Tetap' },
     { no: 5, name: 'Operator Kran Jembatan' },
-    { no: 6, name: 'Abli Juru Ikat (Rigging)' },
+    { no: 6, name: 'Ahli Juru Ikat (Rigging)' },
     { no: 7, name: 'Operator Forklift' },
-    { no: 8, name: 'Pengelobaan Darat' },
+    { no: 8, name: 'Pengeboran Darat' },
     { no: 9, name: 'Juru Bor Darat (Driller)' },
     { no: 10, name: 'Pengoperasian Lantai Bor' },
     { no: 11, name: 'Pengoperasian Menara Bor' },
@@ -148,10 +148,10 @@ const certificationsData = [
     { no: 14, name: 'Operator Lantai Perawatan Sumur' },
     { no: 15, name: 'Operator Menara Perawatan Sumur' },
     { no: 16, name: 'Operator Unit Perawatan Sumur' },
-    { no: 17, name: 'Abli Pengendali Perawatan Sumur' },
-    { no: 18, name: 'KS Migas' },
-    { no: 19, name: 'Operator KS Industri Migas' },
-    { no: 20, name: 'Pengavas KS Industri Migas' },
+    { no: 17, name: 'Ahli Pengendali Perawatan Sumur' },
+    { no: 18, name: 'K3 Migas' },
+    { no: 19, name: 'Operator K3 Industri Migas' },
+    { no: 20, name: 'Pengawas K3 Industri Migas' },
     { no: 21, name: 'Laboratorium Pengujian Migas' },
     { no: 22, name: 'Operator Pengujian Minyak Lumas' },
     { no: 23, name: 'Scaffolding' },
@@ -168,10 +168,10 @@ const certificationsData = [
     { no: 34, name: 'Instrumentasi dan Kalibrasi' },
     { no: 35, name: 'Teknisi Instrumentasi Tingkat 1' },
     { no: 36, name: 'Teknisi Instrumentasi Tingkat 2' },
-    { no: 37, name: 'Pengavas Instrumentasi' },
+    { no: 37, name: 'Pengawas Instrumentasi' },
     { no: 38, name: 'Inspektur Pesawat Angkat/Crane Inspektur' },
     { no: 39, name: 'Inspektur Bejana Tekan' },
-    { no: 40, name: 'Inspektur Bahan Peleclak' },
+    { no: 40, name: 'Inspektur Bahan Peledak' },
     { no: 41, name: 'Inspektur Pipa Penyalur' },
     { no: 42, name: 'Inspektur Rotating Equipment' },
     { no: 43, name: 'Inspektur Tangki Timbun' },
@@ -180,38 +180,38 @@ const certificationsData = [
     { no: 46, name: 'Inspektur Casing Tubing' },
     { no: 47, name: 'Inspektur Platform' },
     { no: 48, name: 'Wireline Logging' },
-    { no: 49, name: 'Enjiner Instrument Sistem Atat Ukur' },
+    { no: 49, name: 'Engineer Instrument Sistem Alat Ukur' },
     { no: 50, name: 'Auditor Energi Industri' },
     { no: 51, name: 'Auditor Energi Bangunan Gedung' },
     { no: 52, name: 'Pelaksanaan Audit Energi Sistem Kelistrikan' },
-    { no: 53, name: 'Pelaksanaan Audit Termal dan Mekanikul' },
+    { no: 53, name: 'Pelaksanaan Audit Termal dan Mekanikal' },
     { no: 54, name: 'Pelaksanaan Audit Energi Bangunan Gedung' },
     { no: 55, name: 'Manajer Energi Industri' },
     { no: 56, name: 'Manajer Energi Bangunan Gedung' },
-    { no: 57, name: 'AS Umum' },
-    { no: 58, name: 'Abli KS Muda' },
-    { no: 59, name: 'Abli KS Maóya' },
-    { no: 60, name: 'Abli KS Utama' },
+    { no: 57, name: 'K3 Umum' },
+    { no: 58, name: 'Ahli K3 Muda' },
+    { no: 59, name: 'Ahli K3 Madya' },
+    { no: 60, name: 'Ahli K3 Utama' },
     { no: 61, name: 'Confined Space/Ruang Terbatas' },
-    { no: 62, name: 'Abli Muda Ruang Terbatas' },
+    { no: 62, name: 'Ahli Muda Ruang Terbatas' },
     { no: 63, name: 'Teknisi Ruang Terbatas' },
-    { no: 64, name: 'KS Bekerja di Ketingsian' },
-    { no: 65, name: 'Teknisi KS Bekerja di Ketingsian' },
+    { no: 64, name: 'K3 Bekerja di Ketinggian' },
+    { no: 65, name: 'Teknisi K3 Bekerja di Ketinggian' },
     { no: 66, name: 'Gas Tester' },
     { no: 67, name: 'Pengoperasian Gas Tester Industri Migas' },
     { no: 68, name: 'H2S' },
     { no: 69, name: 'Petugas Penanganan Bahaya Gas H2S' },
     { no: 70, name: 'Operasi Produksi Migas' },
     { no: 71, name: 'Pengoperasian Produksi Minyak dan Gas Alam dan Panas Bumi' },
-    { no: 72, name: 'GS Minerba' },
-    { no: 73, name: 'General Supervisor KS Minerba' },
+    { no: 72, name: 'K3 Minerba' },
+    { no: 73, name: 'General Supervisor K3 Minerba' },
     { no: 74, name: 'Pengelasan' },
     { no: 75, name: 'Supervisi Pengelasan' },
     { no: 76, name: 'Perencanaan Pengelasan' },
     { no: 77, name: 'Pengelasan Pipa' },
     { no: 78, name: 'Pengelasan Pelat' },
-    { no: 79, name: 'Inspeksi Pengelasan Basar' },
-    { no: 80, name: 'Inspeksi Pengelasan Komprehenaif' },
+    { no: 79, name: 'Inspeksi Pengelasan Basah' },
+    { no: 80, name: 'Inspeksi Pengelasan Komprehensif' },
     { no: 81, name: 'Inspeksi Pengelasan Standar' }
 ]
 
@@ -307,45 +307,41 @@ mobileMenuBtn.addEventListener('click', () => {
     navMenu.classList.toggle('show')
 })
 
-
 function redirectToEnglish() {
-    const { pathname, origin, search, hash } = window.location;
-    let newPath = pathname;
+    const { pathname, origin, search, hash } = window.location
+    let newPath = pathname
 
     // Ensure we don’t add '/en' twice
     if (!pathname.includes('/en')) {
-      // Add '/en' at the start for cleaner structure
-      newPath = pathname.endsWith('/')
-        ? pathname + 'en'
-        : pathname + '/en';
+        // Add '/en' at the start for cleaner structure
+        newPath = pathname.endsWith('/') ? pathname + 'en' : pathname + '/en'
     }
 
     // Build full URL
-    const newUrl = new URL(origin + newPath + search + hash);
+    const newUrl = new URL(origin + newPath + search + hash)
 
     // Redirect only if different
     if (newUrl.href !== window.location.href) {
-      window.location.href = newUrl.href;
+        window.location.href = newUrl.href
     }
 }
 
 function redirectToBahasa() {
-    const { pathname, origin, search, hash } = window.location;
-    let newPath = pathname;
+    const { pathname, origin, search, hash } = window.location
+    let newPath = pathname
 
     if (pathname.includes('/en')) {
-      // Remove only leading or trailing '/en' safely
-      newPath = pathname.replace(/\/en(\/)?$/, '').replace(/^\/en(\/)?/, '/');
-      if (newPath === '') newPath = '/'; // fallback if root path
+        // Remove only leading or trailing '/en' safely
+        newPath = pathname.replace(/\/en(\/)?$/, '').replace(/^\/en(\/)?/, '/')
+        if (newPath === '') newPath = '/' // fallback if root path
     }
 
-    const newUrl = new URL(origin + newPath + search + hash);
+    const newUrl = new URL(origin + newPath + search + hash)
 
     if (newUrl.href !== window.location.href) {
-      window.location.href = newUrl.href;
+        window.location.href = newUrl.href
     }
 }
-
 
 // Language Switcher
 if (idLangBtn) {
@@ -389,23 +385,22 @@ if (enLangBtnMobile) {
     })
 }
 
-
 window.addEventListener('DOMContentLoaded', () => {
-    const { pathname, origin, search, hash } = window.location;
-    const menuActive = getCookie("menu-active")
+    const { pathname, origin, search, hash } = window.location
+    const menuActive = getCookie('menu-active')
 
     // menu aktif
-    if (menuActive === "home") {
+    if (menuActive === 'home') {
         homeMenu.classList.add('menu-active')
         aboutMenu.classList.remove('menu-active')
         serviceMenu.classList.remove('menu-active')
     }
-    if (menuActive === "about") {
+    if (menuActive === 'about') {
         homeMenu.classList.remove('menu-active')
         aboutMenu.classList.add('menu-active')
         serviceMenu.classList.remove('menu-active')
     }
-    if (menuActive === "service") {
+    if (menuActive === 'service') {
         homeMenu.classList.remove('menu-active')
         aboutMenu.classList.remove('menu-active')
         serviceMenu.classList.add('menu-active')
@@ -423,14 +418,14 @@ window.addEventListener('DOMContentLoaded', () => {
         idLangBtn.classList.add('active')
         idLangBtnMobile.classList.add('active')
     }
-});
+})
 
 if (homeMenu) {
     homeMenu.addEventListener('click', () => {
         homeMenu.classList.add('menu-active')
         aboutMenu.classList.remove('menu-active')
         serviceMenu.classList.remove('menu-active')
-        setCookie("menu-active", "home")
+        setCookie('menu-active', 'home')
     })
 }
 
@@ -439,7 +434,7 @@ if (aboutMenu) {
         homeMenu.classList.remove('menu-active')
         aboutMenu.classList.add('menu-active')
         serviceMenu.classList.remove('menu-active')
-        setCookie("menu-active", "about")
+        setCookie('menu-active', 'about')
     })
 }
 
@@ -448,7 +443,7 @@ if (serviceMenu) {
         homeMenu.classList.remove('menu-active')
         aboutMenu.classList.remove('menu-active')
         serviceMenu.classList.add('menu-active')
-        setCookie("menu-active", "service")
+        setCookie('menu-active', 'service')
     })
 }
 
@@ -530,29 +525,27 @@ window.addEventListener('scroll', fadeInOnScroll)
 // Trigger once on load
 fadeInOnScroll()
 
-
 // Start Layanan Kami
-const disclosures = document.querySelectorAll('.disclosure');
+const disclosures = document.querySelectorAll('.disclosure')
 
 disclosures.forEach((disc) => {
-    const btn = disc.querySelector('.disclosure__btn');
-    const panel = disc.querySelector('.panel-wrap');
+    const btn = disc.querySelector('.disclosure__btn')
+    const panel = disc.querySelector('.panel-wrap')
 
-    function setOpen(isOpen){
-    disc.setAttribute('aria-expanded', String(isOpen));
-    btn.setAttribute('aria-expanded', String(isOpen));
-    panel.setAttribute('aria-hidden', String(!isOpen));
-    if(isOpen){
-        const h = panel.scrollHeight;
-        panel.style.maxHeight = h + 'px';
-    } else {
-        panel.style.maxHeight = 0;
-    }
+    function setOpen(isOpen) {
+        disc.setAttribute('aria-expanded', String(isOpen))
+        btn.setAttribute('aria-expanded', String(isOpen))
+        panel.setAttribute('aria-hidden', String(!isOpen))
+        if (isOpen) {
+            const h = panel.scrollHeight
+            panel.style.maxHeight = h + 'px'
+        } else {
+            panel.style.maxHeight = 0
+        }
     }
 
-    btn.addEventListener('click', ()=>{
-    const open = disc.getAttribute('aria-expanded') === 'true';
-    setOpen(!open);
-    });
-});
-// End Layanan Kami
+    btn.addEventListener('click', () => {
+        const open = disc.getAttribute('aria-expanded') === 'true'
+        setOpen(!open)
+    })
+})
