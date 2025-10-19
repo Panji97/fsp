@@ -180,40 +180,74 @@ nav ul li a:hover:after {
     width: 100%;
 }
 
-.language-switcher {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    margin-left: 30px;
-    margin-right: 0px;
+/* Start Language Switch */
+.container-languange-toggle{
+    width: fit-content;
+    display: block;
 }
 
-.language-switcher-mobile {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    margin-left: 0;
-    margin-right: 15px;
+.container-languange-toggle-mobile{
+    width: fit-content;
     display: none;
+    margin-right: 10px;
 }
 
-.language-switcher button,
-.language-switcher-mobile button {
-    background: none;
-    border: none;
+.language-toggle {
+    margin-left: 20px;
+    position: relative;
+    display: flex;
+    width: 60px;
+    height: 25px;
+    background: #e0e0e0;
+    border-radius: 50px;
+    padding: 3px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    overflow: hidden;
     cursor: pointer;
-    font-weight: 500;
-    color: var(--black);
-    padding: 5px 10px;
-    border-radius: 3px;
-    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
 }
 
-.language-switcher button.active,
-.language-switcher-mobile button.active {
-    background: var(--primary-blue);
-    color: var(--white);
+/* Tombol IN & EN */
+.lang-option {
+    width: 30px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 10px;
+    color: #444;
+    z-index: 2;
+    transition: color 0.3s ease;
 }
+
+/* Background yang bergerak */
+.lang-bg {
+    position: absolute;
+    top: 3px;
+    width: 30px;
+    height: calc(100% - 5px);
+    background: linear-gradient(135deg, rgba(0, 102, 204, 1), rgba(0, 102, 204, 0.55));
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.lang-bg-in-active{
+    left: 3px;
+}
+
+.lang-bg-en-active{
+    left: 28px;
+}
+
+/* Warna teks aktif */
+.lang-option.active {
+    color: white;
+}
+/* End Language Switch */
 
 .mobile-menu-btn {
     display: none;
@@ -431,8 +465,11 @@ nav ul li a:hover:after {
 
 .vision-mission {
     display: flex;
+    flex-direction: column;
     gap: 30px;
     margin-top: 40px;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .vision,
@@ -1152,6 +1189,127 @@ footer {
 }
 /* End Layanan Kami */
 
+/* ====== SECTION INFORMASI ====== */
+  .info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 100px;
+  }
+
+  .info-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    padding: 30px;
+    height: 300px;
+  }
+
+  .info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  }
+
+  .info-card-img-bnsp {
+    width: 224px;
+    height: 85px;
+    object-fit: cover;
+  }
+
+  .info-card-img-kemnaker {
+    width: 224px;
+    height: 77px;
+    object-fit: cover;
+  }
+
+  .info-card-img-iadc {
+    width: 224px;
+    height: 77px;
+    object-fit: cover;
+  }
+
+  .info-card h4 {
+    margin: 5px 0px;
+    font-size: 1rem;
+    color: #414141;
+  }
+
+  .info-card h3 {
+    margin: 5px 0 10px;
+    font-size: 1.2rem;
+    color: #003366;
+  }
+
+  .info-card p {
+    padding: 0 15px 20px;
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 0px;
+  }
+
+  /* ====== MODAL ====== */
+  .pdf-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .pdf-modal.active {
+    display: flex;
+  }
+
+  .pdf-content {
+    background: #fff;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pdf-content iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+
+  .download-btn {
+    background: #003366;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .download-btn:hover {
+    background: #0055aa;
+  }
+/* End information */
+
 /* Responsive Styles */
 @media (max-width: 992px) {
     .masonry-grid {
@@ -1216,21 +1374,17 @@ footer {
         margin-right: 0px;
     }
 
-    .language-switcher {
-        margin: 0;
-        display: flex;
-        align-items: center;
-        margin-left: 20px;
-        margin-right: 0px;
+    .pdf-content iframe {
+        height: 350px;
+    }
+
+    .container-languange-toggle{
+        width: fit-content;
         display: none;
     }
 
-    .language-switcher-mobile {
-        margin: 0;
-        display: flex;
-        align-items: center;
-        margin-left: 0;
-        margin-right: 15px;
+    .container-languange-toggle-mobile{
+        width: fit-content;
         display: block;
     }
 
@@ -1385,6 +1539,14 @@ footer {
         width: 40px;
         height: 40px;
         font-size: 2rem;
+    }
+
+
+    .info-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        padding: 30px 30px;
     }
 }
 

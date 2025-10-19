@@ -35,247 +35,6 @@ function changeHeroBackground() {
 setInterval(changeHeroBackground, 5000)
 // AKHIR MODIFIKASI HERO CAROUSEL
 
-// Data for services (SUDAH DIMODIFIKASI SEBELUMNYA)
-const servicesData = [
-    {
-        id: 1,
-        title: 'Perawatan Sumur (BNSP)',
-        category: ['migas', 'bnsp'],
-        level: 'Menengah',
-        icon: 'fas fa-oil-can'
-    },
-    {
-        id: 2,
-        title: 'Pemboran (BNSP)',
-        category: ['migas', 'bnsp'],
-        level: 'Menengah',
-        icon: 'fas fa-dolly-flatbed'
-    },
-    {
-        id: 3,
-        title: 'IADC Workover',
-        category: ['migas', 'iadc'],
-        level: 'Lanjut',
-        icon: 'fas fa-hard-hat'
-    },
-    {
-        id: 4,
-        title: 'IADC Drilling',
-        category: ['migas', 'iadc'],
-        level: 'Lanjut',
-        icon: 'fas fa-cog'
-    },
-    {
-        id: 5,
-        title: 'K3 Pesawat Angkat (Kemenaker)',
-        category: ['k3', 'kemenaker'],
-        level: 'Pemula',
-        icon: 'fas fa-truck-loading'
-    },
-    {
-        id: 6,
-        title: 'TKB12 (Kemenaker)',
-        category: ['k3', 'kemenaker'],
-        level: 'Pemula',
-        icon: 'fas fa-fire-extinguisher'
-    },
-    {
-        id: 7,
-        title: 'Operator Pesawat Angkat (BNSP)',
-        category: ['teknikal', 'bnsp'],
-        level: 'Menengah',
-        icon: 'fas fa-crane'
-    },
-    {
-        id: 8,
-        title: 'Rigger (BNSP)',
-        category: ['teknikal', 'bnsp'],
-        level: 'Menengah',
-        icon: 'fas fa-tools'
-    },
-    {
-        id: 9,
-        title: 'K3 Migas Operator & Pengawas (BNSP)',
-        category: ['k3', 'migas', 'bnsp'],
-        level: 'Menengah',
-        icon: 'fas fa-shield-alt'
-    },
-    {
-        id: 10,
-        title: 'Teknisi Listrik Utilitas (BNSP)',
-        category: ['teknikal', 'bnsp'],
-        level: 'Lanjut',
-        icon: 'fas fa-bolt'
-    },
-    {
-        id: 11,
-        title: 'Mekanik Perawatan Tingkat (BNSP)',
-        category: ['teknikal', 'bnsp'],
-        level: 'Menengah',
-        icon: 'fas fa-wrench'
-    },
-    {
-        id: 12,
-        title: 'Mekanik Supervisor (BNSP)',
-        category: ['teknikal', 'bnsp'],
-        level: 'Lanjut',
-        icon: 'fas fa-cogs'
-    },
-    {
-        id: 13,
-        title: 'Leadership Training',
-        category: ['teknikal'],
-        level: 'Lanjut',
-        icon: 'fas fa-users'
-    }
-]
-
-// Data for BNSP certifications
-const certificationsData = [
-    { no: 1, name: 'Inspektur Rig' },
-    { no: 2, name: 'Operator Pesawat Angkat' },
-    { no: 3, name: 'Operator Kran Mobil' },
-    { no: 4, name: 'Operator Kran Putar Tetap' },
-    { no: 5, name: 'Operator Kran Jembatan' },
-    { no: 6, name: 'Ahli Juru Ikat (Rigging)' },
-    { no: 7, name: 'Operator Forklift' },
-    { no: 8, name: 'Pengeboran Darat' },
-    { no: 9, name: 'Juru Bor Darat (Driller)' },
-    { no: 10, name: 'Pengoperasian Lantai Bor' },
-    { no: 11, name: 'Pengoperasian Menara Bor' },
-    { no: 12, name: 'Pengendali Bor' },
-    { no: 13, name: 'Perawatan Sumur' },
-    { no: 14, name: 'Operator Lantai Perawatan Sumur' },
-    { no: 15, name: 'Operator Menara Perawatan Sumur' },
-    { no: 16, name: 'Operator Unit Perawatan Sumur' },
-    { no: 17, name: 'Ahli Pengendali Perawatan Sumur' },
-    { no: 18, name: 'K3 Migas' },
-    { no: 19, name: 'Operator K3 Industri Migas' },
-    { no: 20, name: 'Pengawas K3 Industri Migas' },
-    { no: 21, name: 'Laboratorium Pengujian Migas' },
-    { no: 22, name: 'Operator Pengujian Minyak Lumas' },
-    { no: 23, name: 'Scaffolding' },
-    { no: 24, name: 'Pembantu Operator' },
-    { no: 25, name: 'Operator Scaffolding' },
-    { no: 26, name: 'Teknisi Maintenance & Repair' },
-    { no: 27, name: 'Quality Control' },
-    { no: 28, name: 'Pengelobaan SPBU' },
-    { no: 29, name: 'Operator SPBU' },
-    { no: 30, name: 'Perawatan Mekanik' },
-    { no: 31, name: 'Teknisii II' },
-    { no: 32, name: 'Teknisii III' },
-    { no: 33, name: 'Supervisor' },
-    { no: 34, name: 'Instrumentasi dan Kalibrasi' },
-    { no: 35, name: 'Teknisi Instrumentasi Tingkat 1' },
-    { no: 36, name: 'Teknisi Instrumentasi Tingkat 2' },
-    { no: 37, name: 'Pengawas Instrumentasi' },
-    { no: 38, name: 'Inspektur Pesawat Angkat/Crane Inspektur' },
-    { no: 39, name: 'Inspektur Bejana Tekan' },
-    { no: 40, name: 'Inspektur Bahan Peledak' },
-    { no: 41, name: 'Inspektur Pipa Penyalur' },
-    { no: 42, name: 'Inspektur Rotating Equipment' },
-    { no: 43, name: 'Inspektur Tangki Timbun' },
-    { no: 44, name: 'Inspektur Kelistrikan' },
-    { no: 45, name: 'Pipe Fitter' },
-    { no: 46, name: 'Inspektur Casing Tubing' },
-    { no: 47, name: 'Inspektur Platform' },
-    { no: 48, name: 'Wireline Logging' },
-    { no: 49, name: 'Engineer Instrument Sistem Alat Ukur' },
-    { no: 50, name: 'Auditor Energi Industri' },
-    { no: 51, name: 'Auditor Energi Bangunan Gedung' },
-    { no: 52, name: 'Pelaksanaan Audit Energi Sistem Kelistrikan' },
-    { no: 53, name: 'Pelaksanaan Audit Termal dan Mekanikal' },
-    { no: 54, name: 'Pelaksanaan Audit Energi Bangunan Gedung' },
-    { no: 55, name: 'Manajer Energi Industri' },
-    { no: 56, name: 'Manajer Energi Bangunan Gedung' },
-    { no: 57, name: 'K3 Umum' },
-    { no: 58, name: 'Ahli K3 Muda' },
-    { no: 59, name: 'Ahli K3 Madya' },
-    { no: 60, name: 'Ahli K3 Utama' },
-    { no: 61, name: 'Confined Space/Ruang Terbatas' },
-    { no: 62, name: 'Ahli Muda Ruang Terbatas' },
-    { no: 63, name: 'Teknisi Ruang Terbatas' },
-    { no: 64, name: 'K3 Bekerja di Ketinggian' },
-    { no: 65, name: 'Teknisi K3 Bekerja di Ketinggian' },
-    { no: 66, name: 'Gas Tester' },
-    { no: 67, name: 'Pengoperasian Gas Tester Industri Migas' },
-    { no: 68, name: 'H2S' },
-    { no: 69, name: 'Petugas Penanganan Bahaya Gas H2S' },
-    { no: 70, name: 'Operasi Produksi Migas' },
-    { no: 71, name: 'Pengoperasian Produksi Minyak dan Gas Alam dan Panas Bumi' },
-    { no: 72, name: 'K3 Minerba' },
-    { no: 73, name: 'General Supervisor K3 Minerba' },
-    { no: 74, name: 'Pengelasan' },
-    { no: 75, name: 'Supervisi Pengelasan' },
-    { no: 76, name: 'Perencanaan Pengelasan' },
-    { no: 77, name: 'Pengelasan Pipa' },
-    { no: 78, name: 'Pengelasan Pelat' },
-    { no: 79, name: 'Inspeksi Pengelasan Basah' },
-    { no: 80, name: 'Inspeksi Pengelasan Komprehensif' },
-    { no: 81, name: 'Inspeksi Pengelasan Standar' }
-]
-
-// Data for gallery
-const galleryData = [
-    {
-        id: 1,
-        category: 'training',
-        image: '/images/a.jpeg'
-    },
-    {
-        id: 2,
-        category: 'training',
-        image: '/images/b.jpeg'
-    },
-    {
-        id: 3,
-        category: 'training',
-        image: '/images/c.jpeg'
-    },
-    {
-        id: 4,
-        category: 'events',
-        image: '/images/d.jpeg'
-    },
-    {
-        id: 5,
-        category: 'events',
-        image: '/images/e.jpeg'
-    },
-    {
-        id: 6,
-        category: 'training',
-        image: '/images/f.jpeg'
-    },
-    {
-        id: 7,
-        category: 'events',
-        image: '/images/g.jpeg'
-    },
-    {
-        id: 8,
-        category: 'training',
-        image: '/images/h.jpeg'
-    },
-    {
-        id: 9,
-        category: 'events',
-        image: '/images/c.jpeg'
-    }
-]
-
-// NEW: Data for clients (Dummy data)
-const clientLogos = [
-    { id: 1, name: 'Client A', image: '/images/PT. Arjuna Petrogas Indonesia.jpeg' }, // Ganti dengan path logo aktual
-    { id: 2, name: 'Client B', image: '/images/PT. Asia Petrocom Service.jpeg' },
-    { id: 3, name: 'Client C', image: '/images/PT. Asrindo Citraseni Satria.jpg' },
-    { id: 4, name: 'Client D', image: '/images/PT. Baker Hughes Indonesia.jpg' },
-    { id: 5, name: 'Client E', image: '/images/PT. Bormindo Nusantara.png' },
-    { id: 6, name: 'Client F', image: '/images/PT. General buditekindo.jpg' },
-    { id: 6, name: 'Client F', image: '/images/⁠PT. Greatwall Drilling Asia Pacific.jpeg' },
-    { id: 6, name: 'Client F', image: '/images/PT. Major Drlling Indonesia.jpeg' },
-    { id: 6, name: 'Client F', image: '/images/PT. Patra Drilling Contractor (Pertamina).jpeg' }
-]
 
 // DOM Elements
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn')
@@ -469,6 +228,35 @@ window.addEventListener('DOMContentLoaded', () => {
         langBgMobile.classList.remove('lang-bg-en-active')
         langBgMobile.classList.add('lang-bg-in-active')
     }
+
+
+
+    const cards = document.querySelectorAll(".info-card");
+    const modal = document.getElementById("pdfModal");
+    const pdfViewer = document.getElementById("pdfViewer");
+    // const downloadLink = document.getElementById("downloadPdf");
+    const closeModal = document.getElementById("closeModal");
+
+    cards.forEach(card => {
+        card.addEventListener("click", () => {
+        const pdfPath = card.getAttribute("data-pdf");
+        pdfViewer.src = pdfPath;
+        // downloadLink.href = pdfPath;
+        modal.classList.add("active");
+        });
+    });
+
+    closeModal.addEventListener("click", () => {
+        modal.classList.remove("active");
+        pdfViewer.src = "";
+    });
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+        modal.classList.remove("active");
+        pdfViewer.src = "";
+        }
+    });
 })
 
 if (homeMenu) {
@@ -502,7 +290,7 @@ if (serviceMenu) {
 }
 
 if (informationMenu) {
-    serviceMenu.addEventListener('click', () => {
+    informationMenu.addEventListener('click', () => {
         homeMenu.classList.remove('menu-active')
         aboutMenu.classList.remove('menu-active')
         serviceMenu.classList.remove('menu-active')
@@ -510,6 +298,8 @@ if (informationMenu) {
         setCookie('menu-active', 'information')
     })
 }
+
+
 
 // Contact Form Submission
 contactForm.addEventListener('submit', (e) => {
@@ -590,26 +380,4 @@ window.addEventListener('scroll', fadeInOnScroll)
 fadeInOnScroll()
 
 // Start Layanan Kami
-const disclosures = document.querySelectorAll('.disclosure')
 
-disclosures.forEach((disc) => {
-    const btn = disc.querySelector('.disclosure__btn')
-    const panel = disc.querySelector('.panel-wrap')
-
-    function setOpen(isOpen) {
-        disc.setAttribute('aria-expanded', String(isOpen))
-        btn.setAttribute('aria-expanded', String(isOpen))
-        panel.setAttribute('aria-hidden', String(!isOpen))
-        if (isOpen) {
-            const h = panel.scrollHeight
-            panel.style.maxHeight = h + 'px'
-        } else {
-            panel.style.maxHeight = 0
-        }
-    }
-
-    btn.addEventListener('click', () => {
-        const open = disc.getAttribute('aria-expanded') === 'true'
-        setOpen(!open)
-    })
-})

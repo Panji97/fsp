@@ -204,6 +204,7 @@ const navMenu = document.querySelector('nav ul')
 const homeMenu = document.getElementById('home-menu')
 const aboutMenu = document.getElementById('about-menu')
 const serviceMenu = document.getElementById('service-menu')
+const informationMenu = document.getElementById('information-menu')
 
 const home = document.getElementById('home')
 const about = document.getElementById('about')
@@ -227,7 +228,12 @@ const idLangBtn = document.getElementById('id-lang')
 const enLangBtn = document.getElementById('en-lang')
 const idLangBtnMobile = document.getElementById('id-lang-mobile')
 const enLangBtnMobile = document.getElementById('en-lang-mobile')
+const langBg = document.getElementById('lang-bg-status')
+const langBgMobile = document.getElementById('lang-bg-status-mobile')
 const clientsTrack = document.getElementById('clients-track') // NEW DOM ELEMENT
+
+const bg = document.querySelector('.lang-bg');
+const container = document.querySelector('.language-toggle');
 
 // Mobile Menu Toggle
 mobileMenuBtn.addEventListener('click', () => {
@@ -235,46 +241,55 @@ mobileMenuBtn.addEventListener('click', () => {
 })
 
 function redirectToEnglish() {
-    const { pathname, origin, search, hash } = window.location
-    let newPath = pathname
+    const { pathname, origin, search, hash } = window.location;
+    let newPath = pathname;
 
     // Ensure we don’t add '/en' twice
     if (!pathname.includes('/en')) {
-        // Add '/en' at the start for cleaner structure
-        newPath = pathname.endsWith('/') ? pathname + 'en' : pathname + '/en'
+      // Add '/en' at the start for cleaner structure
+      newPath = pathname.endsWith('/')
+        ? pathname + 'en'
+        : pathname + '/en';
     }
 
     // Build full URL
-    const newUrl = new URL(origin + newPath + search + hash)
+    const newUrl = new URL(origin + newPath + search + hash);
 
     // Redirect only if different
     if (newUrl.href !== window.location.href) {
-        window.location.href = newUrl.href
+      window.location.href = newUrl.href;
     }
 }
 
 function redirectToBahasa() {
-    const { pathname, origin, search, hash } = window.location
-    let newPath = pathname
+    const { pathname, origin, search, hash } = window.location;
+    let newPath = pathname;
 
     if (pathname.includes('/en')) {
-        // Remove only leading or trailing '/en' safely
-        newPath = pathname.replace(/\/en(\/)?$/, '').replace(/^\/en(\/)?/, '/')
-        if (newPath === '') newPath = '/' // fallback if root path
+      // Remove only leading or trailing '/en' safely
+      newPath = pathname.replace(/\/en(\/)?$/, '').replace(/^\/en(\/)?/, '/');
+      if (newPath === '') newPath = '/'; // fallback if root path
     }
 
-    const newUrl = new URL(origin + newPath + search + hash)
+    const newUrl = new URL(origin + newPath + search + hash);
 
     if (newUrl.href !== window.location.href) {
-        window.location.href = newUrl.href
+      window.location.href = newUrl.href;
     }
 }
 
 // Language Switcher
 if (idLangBtn) {
     idLangBtn.addEventListener('click', () => {
-        idLangBtn.classList.add('active')
-        enLangBtn.classList.remove('active')
+        idLangBtn.classList.add('active');
+        enLangBtn.classList.remove('active');
+        document.documentElement.lang = 'id';
+
+        langBg.classList.remove('lang-bg-en-active')
+        langBg.classList.add('lang-bg-in-active')
+        langBgMobile.classList.remove('lang-bg-en-active')
+        langBgMobile.classList.add('lang-bg-in-active')
+
         // In a real implementation, you would change the content to Indonesian
         console.log('Switched to Indonesian')
         redirectToBahasa()
@@ -283,8 +298,15 @@ if (idLangBtn) {
 
 if (enLangBtn) {
     enLangBtn.addEventListener('click', () => {
-        enLangBtn.classList.add('active')
-        idLangBtn.classList.remove('active')
+        enLangBtn.classList.add('active');
+        idLangBtn.classList.remove('active');
+        langBg.classList.remove('lang-bg-in-active')
+        langBg.classList.add('lang-bg-en-active')
+        langBgMobile.classList.remove('lang-bg-in-active')
+        langBgMobile.classList.add('lang-bg-en-active')
+
+        document.documentElement.lang = 'en';
+
         // In a real implementation, you would change the content to English
         console.log('Switched to English')
         redirectToEnglish()
@@ -296,6 +318,12 @@ if (idLangBtnMobile) {
     idLangBtnMobile.addEventListener('click', () => {
         idLangBtnMobile.classList.add('active')
         enLangBtnMobile.classList.remove('active')
+
+        langBg.classList.remove('lang-bg-en-active')
+        langBg.classList.add('lang-bg-in-active')
+        langBgMobile.classList.remove('lang-bg-en-active')
+        langBgMobile.classList.add('lang-bg-in-active')
+
         // In a real implementation, you would change the content to Indonesian
         console.log('Switched to Indonesian')
         redirectToBahasa()
@@ -306,6 +334,12 @@ if (enLangBtnMobile) {
     enLangBtnMobile.addEventListener('click', () => {
         enLangBtnMobile.classList.add('active')
         idLangBtnMobile.classList.remove('active')
+
+        langBg.classList.remove('lang-bg-in-active')
+        langBg.classList.add('lang-bg-en-active')
+        langBgMobile.classList.remove('lang-bg-in-active')
+        langBgMobile.classList.add('lang-bg-en-active')
+
         // In a real implementation, you would change the content to English
         console.log('Switched to English')
         redirectToEnglish()
@@ -352,32 +386,54 @@ window.addEventListener('DOMContentLoaded', () => {
         homeMenu.classList.add('menu-active')
         aboutMenu.classList.remove('menu-active')
         serviceMenu.classList.remove('menu-active')
+        informationMenu.classList.remove('menu-active')
         handleScrollTo(home)
     }
     if (menuActive === 'about') {
         homeMenu.classList.remove('menu-active')
         aboutMenu.classList.add('menu-active')
         serviceMenu.classList.remove('menu-active')
+        informationMenu.classList.remove('menu-active')
         handleScrollTo(about)
     }
     if (menuActive === 'service') {
         homeMenu.classList.remove('menu-active')
         aboutMenu.classList.remove('menu-active')
         serviceMenu.classList.add('menu-active')
+        informationMenu.classList.remove('menu-active')
+    }
+    if (menuActive === 'information') {
+        homeMenu.classList.remove('menu-active')
+        aboutMenu.classList.remove('menu-active')
+        serviceMenu.classList.remove('menu-active')
+        informationMenu.classList.add('menu-active')
     }
     // end menu aktif
 
+    // Start Switch Languange
     if (pathname.includes('/en')) {
         enLangBtn.classList.add('active')
         enLangBtnMobile.classList.add('active')
         idLangBtn.classList.remove('active')
         idLangBtnMobile.classList.remove('active')
+
+        langBg.classList.remove('lang-bg-in-active')
+        langBg.classList.add('lang-bg-en-active')
+        langBgMobile.classList.remove('lang-bg-in-active')
+        langBgMobile.classList.add('lang-bg-en-active')
     } else {
+        bg.style.left = '3px';
         enLangBtn.classList.remove('active')
         enLangBtnMobile.classList.remove('active')
         idLangBtn.classList.add('active')
         idLangBtnMobile.classList.add('active')
+
+        langBg.classList.remove('lang-bg-en-active')
+        langBg.classList.add('lang-bg-in-active')
+        langBgMobile.classList.remove('lang-bg-en-active')
+        langBgMobile.classList.add('lang-bg-in-active')
     }
+    // End Switch Languange
 
     // menu active on scroll
     // Create the Intersection Observer
@@ -413,6 +469,7 @@ if (homeMenu) {
         homeMenu.classList.add('menu-active')
         aboutMenu.classList.remove('menu-active')
         serviceMenu.classList.remove('menu-active')
+        informationMenu.classList.remove('menu-active')
         setCookie('menu-active', 'home')
     })
 }
@@ -422,6 +479,7 @@ if (aboutMenu) {
         homeMenu.classList.remove('menu-active')
         aboutMenu.classList.add('menu-active')
         serviceMenu.classList.remove('menu-active')
+        informationMenu.classList.remove('menu-active')
         setCookie('menu-active', 'about')
     })
 }
@@ -431,7 +489,18 @@ if (serviceMenu) {
         homeMenu.classList.remove('menu-active')
         aboutMenu.classList.remove('menu-active')
         serviceMenu.classList.add('menu-active')
+        informationMenu.classList.remove('menu-active')
         setCookie('menu-active', 'service')
+    })
+}
+
+if (informationMenu) {
+    informationMenu.addEventListener('click', () => {
+        homeMenu.classList.remove('menu-active')
+        aboutMenu.classList.remove('menu-active')
+        serviceMenu.classList.remove('menu-active')
+        informationMenu.classList.add('menu-active')
+        setCookie('menu-active', 'information')
     })
 }
 
@@ -697,7 +766,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header')
     if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 0.95)'
+        header.style.background = 'var(--white)'
         header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)'
     } else {
         header.style.background = 'var(--white)'

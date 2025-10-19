@@ -34,10 +34,13 @@
                 </div>
 
                 <div class="menu-wraper">
-                    <!-- <div class="language-switcher-mobile">
-                      <button id="id-lang-mobile">Ind</button>
-                      <button id="en-lang-mobile">Eng</button>
-                    </div> -->
+                    <div class="container-languange-toggle-mobile">
+                        <div class="language-toggle">
+                            <div class="lang-option active" id="id-lang-mobile">IN</div>
+                            <div class="lang-option" id="en-lang-mobile">EN</div>
+                            <div class="lang-bg" id="lang-bg-status-mobile"></div>
+                        </div>
+                    </div>
 
                     <button class="mobile-menu-btn">
                         <i class="fas fa-bars"></i>
@@ -48,16 +51,17 @@
                             <li><a href="/" id="home-menu">Beranda</a></li>
                             <li><a href="/" id="about-menu">Tentang</a></li>
                             <li><a href="/layanan-kami" id="service-menu">Layanan Kami</a></li>
-                            <!-- <li><a href="/">Galeri</a></li>
-                            <li><a href="/">Klien Kami</a></li>
-                            <li><a href="/">Kontak</a></li> -->
+                            <li><a href="/informasi" id="information-menu">Informasi</a></li>
                         </ul>
                     </nav>
 
-                    <!-- <div class="language-switcher">
-                      <button id="id-lang">Ind</button>
-                      <button id="en-lang">Eng</button>
-                    </div> -->
+                    <div class="container-languange-toggle">
+                        <div class="language-toggle">
+                            <div class="lang-option active" id="id-lang">IN</div>
+                            <div class="lang-option" id="en-lang">EN</div>
+                            <div class="lang-bg" id="lang-bg-status"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
@@ -147,10 +151,23 @@
                     <div class="disclosure" id="disc6" aria-expanded="false">
                         <button class="disclosure__btn" id="disc6-btn" aria-controls="disc6-panel" aria-expanded="false">
                             <span class="icon" aria-hidden="true"></span>
-                            <div class="disclosure_btn_text">Laboratarium Pengujian Migas</div>
+                            <div class="disclosure_btn_text">Laboratorium Pengujian Migas</div>
                         </button>
                         <div class="panel-wrap" id="disc6-panel" aria-hidden="true">
                             <div class="panel">
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Operator Pengujian Minyak Lumas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="disclosure" id="disc33" aria-expanded="false">
+                        <button class="disclosure__btn" id="disc33-btn" aria-controls="disc33-panel" aria-expanded="false">
+                            <span class="icon" aria-hidden="true"></span>
+                            <div class="disclosure_btn_text">Scaffolding</div>
+                        </button>
+                        <div class="panel-wrap" id="disc33-panel" aria-hidden="true">
+                            <div class="panel">
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Pembantu Operator</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Operator Scaffolding</p>
                                 <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknisi Maintenance & Repair</p>
                                 <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Quality Control</p>
                             </div>
@@ -168,6 +185,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="disclosure" id="disc8" aria-expanded="false">
                         <button class="disclosure__btn" id="disc8-btn" aria-controls="disc8-panel" aria-expanded="false">
                             <span class="icon" aria-hidden="true"></span>
@@ -175,17 +193,36 @@
                         </button>
                         <div class="panel-wrap" id="disc8-panel" aria-hidden="true">
                             <div class="panel">
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknisi</p>
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknis II</p>
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknis III</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknisi I</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknisi II</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknisi III</p>
                                 <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Supervisor</p>
                             </div>
                         </div>
                     </div>
+
+                    <div class="disclosure" id="disc88" aria-expanded="false">
+                        <button class="disclosure__btn" id="disc88-btn" aria-controls="disc88-panel" aria-expanded="false">
+                            <span class="icon" aria-hidden="true"></span>
+                            <div class="disclosure_btn_text">Instrumentasi dan Kalibrasi</div>
+                        </button>
+                        <div class="panel-wrap" id="disc88-panel" aria-hidden="true">
+                            <div class="panel">
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknisi Insttrumentasi Tingkat 1</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknisi Instrumentasi Tingk 2</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Pengawas Instrumentasi</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknisi Kalibrasi Suhu</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknisi Kalibrasi Tekanan</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknisi Kalibrasi Densitas</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Teknisi Kalibrasi Volume</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="disclosure" id="disc9" aria-expanded="false">
                         <button class="disclosure__btn" id="disc9-btn" aria-controls="disc9-panel" aria-expanded="false">
                             <span class="icon" aria-hidden="true"></span>
-                            <div class="disclosure_btn_text">Pengembalian Cantah Minyak dan Gas Bumi</div>
+                            <div class="disclosure_btn_text">Pengembalian Contoh Minyak dan Gas Bumi</div>
                         </button>
                         <div class="panel-wrap" id="disc9-panel" aria-hidden="true">
                             <div class="panel">
@@ -219,11 +256,11 @@
                     <div class="disclosure" id="disc12" aria-expanded="false">
                         <button class="disclosure__btn" id="disc12-btn" aria-controls="disc12-panel" aria-expanded="false">
                             <span class="icon" aria-hidden="true"></span>
-                            <div class="disclosure_btn_text">Inspektur Bejana Teka</div>
+                            <div class="disclosure_btn_text">Inspektur Bejana Tekan</div>
                         </button>
                         <div class="panel-wrap" id="disc12-panel" aria-hidden="true">
                             <div class="panel">
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Inspektur Bejana Teka</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Inspektur Bejana Tekan</p>
                             </div>
                         </div>
                     </div>
@@ -364,6 +401,19 @@
                             </div>
                         </div>
                     </div>
+                    <div class="disclosure" id="disc32" aria-expanded="false">
+                        <button class="disclosure__btn" id="disc32-btn" aria-controls="disc32-panel" aria-expanded="false">
+                            <span class="icon" aria-hidden="true"></span>
+                            <div class="disclosure_btn_text">K3 Umum</div>
+                        </button>
+                        <div class="panel-wrap" id="disc32-panel" aria-hidden="true">
+                            <div class="panel">
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Ahli K3 Muda</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Ahli K3 Madya</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Ahli K3 Utama</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="disclosure" id="disc25" aria-expanded="false">
                         <button class="disclosure__btn" id="disc25-btn" aria-controls="disc25-panel" aria-expanded="false">
                             <span class="icon" aria-hidden="true"></span>
@@ -395,7 +445,6 @@
                         <div class="panel-wrap" id="disc27-panel" aria-hidden="true">
                             <div class="panel">
                                 <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Pengoperasian Gas Tester Industri Migas</p>
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Authorized Gas Tester</p>
                             </div>
                         </div>
                     </div>
@@ -406,8 +455,7 @@
                         </button>
                         <div class="panel-wrap" id="disc28-panel" aria-hidden="true">
                             <div class="panel">
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Petugas Pengamanan Bahaya Gas H2S</p>
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Petugas Gas H2S</p>
+                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Petugas Penanganan Bahaya Gas H2S</p>
                             </div>
                         </div>
                     </div>
@@ -450,32 +498,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="disclosure" id="disc32" aria-expanded="false">
-                        <button class="disclosure__btn" id="disc32-btn" aria-controls="disc32-panel" aria-expanded="false">
-                            <span class="icon" aria-hidden="true"></span>
-                            <div class="disclosure_btn_text">K3 Umum</div>
-                        </button>
-                        <div class="panel-wrap" id="disc32-panel" aria-hidden="true">
-                            <div class="panel">
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Operator K3 Umum</p>
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Petugas K3 Umum</p>
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Ahli K3 Umum</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="disclosure" id="disc33" aria-expanded="false">
-                        <button class="disclosure__btn" id="disc33-btn" aria-controls="disc33-panel" aria-expanded="false">
-                            <span class="icon" aria-hidden="true"></span>
-                            <div class="disclosure_btn_text">Scaffolding</div>
-                        </button>
-                        <div class="panel-wrap" id="disc33-panel" aria-hidden="true">
-                            <div class="panel">
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Operator Scaffolding</p>
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Pengawas Scaffolding</p>
-                                <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; QC Scaffolding</p>
-                            </div>
-                        </div>
-                    </div>
+<!--
                     <div class="disclosure" id="disc34" aria-expanded="false">
                         <button class="disclosure__btn" id="disc34-btn" aria-controls="disc34-panel" aria-expanded="false">
                             <span class="icon" aria-hidden="true"></span>
@@ -596,7 +619,7 @@
                                 <p class="pelayanan-item"><i class="fa-solid fa-check"></i>&nbsp; Operator Loader</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <br />
                     <br />
