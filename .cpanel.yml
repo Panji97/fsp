@@ -6,6 +6,8 @@ deployment:
         - /bin/cp style.css $DEPLOYPATH
         - /bin/cp script.js $DEPLOYPATH
         - /bin/cp script-layanan.js $DEPLOYPATH
+        - /bin/cp script-informasi.js $DEPLOYPATH
         - /bin/cp -R images $DEPLOYPATH
         - /bin/cp -R layanan-kami $DEPLOYPATH
         - /bin/cp -R en $DEPLOYPATH
+        - /bin/cp -R informasi $DEPLOYPATH
