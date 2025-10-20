@@ -247,7 +247,7 @@ window.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => {
         card.addEventListener("click", () => {
         const pdfPath = card.getAttribute("data-pdf");
-        console.log("HHHHHHHHHH",isMobile())
+
         if (isMobile()) {
             // JIKA MOBILE: Buka PDF di tab baru
             window.open(pdfPath, '_blank');
