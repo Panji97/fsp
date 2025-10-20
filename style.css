@@ -260,6 +260,7 @@ nav ul li a:hover:after {
 
 /* MODIFIKASI: Hero Section for Carousel */
 .hero {
+    margin-top: 77px;
     height: 100vh;
     background: var(--secondary-blue); /* Fallback */
     display: flex;
@@ -1390,7 +1391,8 @@ footer {
 
     /* MODIFIKASI: Hero Section for Carousel */
     .hero {
-        height: 85vh;
+        margin-top: 77px;
+        height: 95vh;
         background: var(--secondary-blue); /* Fallback */
         display: flex;
         align-items: center;
@@ -1472,7 +1474,7 @@ footer {
     }
 
     .hero-layanan h1 {
-        font-size: 2rem;
+        font-size: 1.45rem;
         color: var(--white);
         margin-bottom: 20px;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);

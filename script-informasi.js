@@ -237,12 +237,25 @@ window.addEventListener('DOMContentLoaded', () => {
     // const downloadLink = document.getElementById("downloadPdf");
     const closeModal = document.getElementById("closeModal");
 
+    // Fungsi untuk mendeteksi apakah perangkat adalah mobile
+    function isMobile() {
+        // Mengecek string User Agent untuk kata kunci umum perangkat mobile
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+    }
+
     cards.forEach(card => {
         card.addEventListener("click", () => {
         const pdfPath = card.getAttribute("data-pdf");
-        pdfViewer.src = pdfPath;
-        // downloadLink.href = pdfPath;
-        modal.classList.add("active");
+        console.log("HHHHHHHHHH",isMobile())
+        if (isMobile()) {
+            // JIKA MOBILE: Buka PDF di tab baru
+            window.open(pdfPath, '_blank');
+        } else {
+            pdfViewer.src = pdfPath;
+            // downloadLink.href = pdfPath;
+            modal.classList.add("active");
+        }
         });
     });
 
