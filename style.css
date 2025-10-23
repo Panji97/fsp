@@ -1267,6 +1267,12 @@ footer {
     object-fit: cover;
   }
 
+  .info-card-img-tf {
+    width: 224px;
+    height: 95px;
+    object-fit: cover;
+  }
+
   .info-card h4 {
     margin: 5px 0px;
     font-size: 1rem;
