@@ -126,25 +126,25 @@ const galleryData = [
         id: 1,
         category: 'training',
         image: '/images/a.jpeg',
-        alt: "Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
+        alt: 'Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan'
     },
     {
         id: 2,
         category: 'training',
         image: '/images/b.jpeg',
-        alt: "Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
+        alt: 'Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan'
     },
     {
         id: 3,
         category: 'training',
         image: '/images/c.jpeg',
-        alt: "Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
+        alt: 'Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan'
     },
     {
         id: 4,
         category: 'events',
         image: '/images/d.jpeg',
-        alt: "Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
+        alt: 'Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan'
     },
     {
         id: 5,
@@ -155,43 +155,43 @@ const galleryData = [
         id: 6,
         category: 'training',
         image: '/images/f.jpeg',
-        alt: "Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
+        alt: 'Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan'
     },
     {
         id: 7,
         category: 'events',
         image: '/images/g.jpeg',
-        alt: "Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
+        alt: 'Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan'
     },
     {
         id: 8,
         category: 'training',
         image: '/images/h.jpeg',
-        alt: "Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
+        alt: 'Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan'
     },
     {
         id: 9,
         category: 'events',
         image: '/images/i.jpeg',
-        alt: "Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
+        alt: 'Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan'
     },
     {
         id: 10,
         category: 'events',
         image: '/images/j.jpeg',
-        alt: "Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
+        alt: 'Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan'
     },
     {
         id: 11,
         category: 'events',
         image: '/images/k.jpeg',
-        alt: "Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
+        alt: 'Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan'
     },
     {
         id: 12,
         category: 'training',
         image: '/images/l.jpeg',
-        alt: "Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
+        alt: 'Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan'
     }
 ]
 
@@ -203,9 +203,13 @@ const clientLogos = [
     { id: 4, name: 'Client D', image: '/images/PT. Baker Hughes Indonesia.jpg' },
     { id: 5, name: 'Client E', image: '/images/PT. Bormindo Nusantara.png' },
     { id: 6, name: 'Client F', image: '/images/PT. General buditekindo.jpg' },
-    { id: 6, name: 'Client F', image: '/images/⁠PT. Greatwall Drilling Asia Pacific.jpeg' },
-    { id: 6, name: 'Client F', image: '/images/PT. Major Drlling Indonesia.jpeg' },
-    { id: 6, name: 'Client F', image: '/images/PT. Patra Drilling Contractor (Pertamina).jpeg' }
+    { id: 7, name: 'Client G', image: '/images/⁠PT. Greatwall Drilling Asia Pacific.jpeg' },
+    { id: 8, name: 'Client H', image: '/images/PT. Major Drlling Indonesia.jpeg' },
+    { id: 9, name: 'Client I', image: '/images/PT. Patra Drilling Contractor (Pertamina).jpeg' },
+    { id: 10, name: 'Client J', image: '/images/PT. client1.jpeg' },
+    { id: 11, name: 'Client K', image: '/images/PT. client2.jpeg' },
+    { id: 12, name: 'Client L', image: '/images/PT. client3.png' },
+    { id: 13, name: 'Client M', image: '/images/PT. client4.png' }
 ]
 
 // DOM Elements
@@ -243,8 +247,8 @@ const langBg = document.getElementById('lang-bg-status')
 const langBgMobile = document.getElementById('lang-bg-status-mobile')
 const clientsTrack = document.getElementById('clients-track') // NEW DOM ELEMENT
 
-const bg = document.querySelector('.lang-bg');
-const container = document.querySelector('.language-toggle');
+const bg = document.querySelector('.lang-bg')
+const container = document.querySelector('.language-toggle')
 
 // Mobile Menu Toggle
 mobileMenuBtn.addEventListener('click', () => {
@@ -252,49 +256,47 @@ mobileMenuBtn.addEventListener('click', () => {
 })
 
 function redirectToEnglish() {
-    const { pathname, origin, search, hash } = window.location;
-    let newPath = pathname;
+    const { pathname, origin, search, hash } = window.location
+    let newPath = pathname
 
     // Ensure we don’t add '/en' twice
     if (!pathname.includes('/en')) {
-      // Add '/en' at the start for cleaner structure
-      newPath = pathname.endsWith('/')
-        ? pathname + 'en'
-        : pathname + '/en';
+        // Add '/en' at the start for cleaner structure
+        newPath = pathname.endsWith('/') ? pathname + 'en' : pathname + '/en'
     }
 
     // Build full URL
-    const newUrl = new URL(origin + newPath + search + hash);
+    const newUrl = new URL(origin + newPath + search + hash)
 
     // Redirect only if different
     if (newUrl.href !== window.location.href) {
-      window.location.href = newUrl.href;
+        window.location.href = newUrl.href
     }
 }
 
 function redirectToBahasa() {
-    const { pathname, origin, search, hash } = window.location;
-    let newPath = pathname;
+    const { pathname, origin, search, hash } = window.location
+    let newPath = pathname
 
     if (pathname.includes('/en')) {
-      // Remove only leading or trailing '/en' safely
-      newPath = pathname.replace(/\/en(\/)?$/, '').replace(/^\/en(\/)?/, '/');
-      if (newPath === '') newPath = '/'; // fallback if root path
+        // Remove only leading or trailing '/en' safely
+        newPath = pathname.replace(/\/en(\/)?$/, '').replace(/^\/en(\/)?/, '/')
+        if (newPath === '') newPath = '/' // fallback if root path
     }
 
-    const newUrl = new URL(origin + newPath + search + hash);
+    const newUrl = new URL(origin + newPath + search + hash)
 
     if (newUrl.href !== window.location.href) {
-      window.location.href = newUrl.href;
+        window.location.href = newUrl.href
     }
 }
 
 // Language Switcher
 if (idLangBtn) {
     idLangBtn.addEventListener('click', () => {
-        idLangBtn.classList.add('active');
-        enLangBtn.classList.remove('active');
-        document.documentElement.lang = 'id';
+        idLangBtn.classList.add('active')
+        enLangBtn.classList.remove('active')
+        document.documentElement.lang = 'id'
 
         langBg.classList.remove('lang-bg-en-active')
         langBg.classList.add('lang-bg-in-active')
@@ -309,14 +311,14 @@ if (idLangBtn) {
 
 if (enLangBtn) {
     enLangBtn.addEventListener('click', () => {
-        enLangBtn.classList.add('active');
-        idLangBtn.classList.remove('active');
+        enLangBtn.classList.add('active')
+        idLangBtn.classList.remove('active')
         langBg.classList.remove('lang-bg-in-active')
         langBg.classList.add('lang-bg-en-active')
         langBgMobile.classList.remove('lang-bg-in-active')
         langBgMobile.classList.add('lang-bg-en-active')
 
-        document.documentElement.lang = 'en';
+        document.documentElement.lang = 'en'
 
         // In a real implementation, you would change the content to English
         console.log('Switched to English')
@@ -433,7 +435,7 @@ window.addEventListener('DOMContentLoaded', () => {
         langBgMobile.classList.remove('lang-bg-in-active')
         langBgMobile.classList.add('lang-bg-en-active')
     } else {
-        bg.style.left = '3px';
+        bg.style.left = '3px'
         enLangBtn.classList.remove('active')
         enLangBtnMobile.classList.remove('active')
         idLangBtn.classList.add('active')
