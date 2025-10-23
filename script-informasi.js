@@ -45,18 +45,7 @@ const aboutMenu = document.getElementById('about-menu')
 const serviceMenu = document.getElementById('service-menu')
 const informationMenu = document.getElementById('information-menu')
 
-const filterChips = document.querySelectorAll('.filter-chip')
-const servicesGrid = document.querySelector('.services-grid')
-const certificationTableBody = document.getElementById('certification-table-body')
-const paginationContainer = document.getElementById('pagination')
-const closeModalBtn = document.querySelector('.close-modal')
-const modalTitle = document.getElementById('modal-title')
-const modalDescription = document.getElementById('modal-description')
-const galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn')
-const galleryGrid = document.getElementById('gallery-grid')
 const lightbox = document.getElementById('lightbox')
-const lightboxImage = document.getElementById('lightbox-image')
-const closeLightboxBtn = document.querySelector('.close-lightbox')
 const contactForm = document.getElementById('contactForm')
 const idLangBtn = document.getElementById('id-lang')
 const enLangBtn = document.getElementById('en-lang')
@@ -64,7 +53,6 @@ const idLangBtnMobile = document.getElementById('id-lang-mobile')
 const enLangBtnMobile = document.getElementById('en-lang-mobile')
 const langBg = document.getElementById('lang-bg-status')
 const langBgMobile = document.getElementById('lang-bg-status-mobile')
-const clientsTrack = document.getElementById('clients-track') // NEW DOM ELEMENT
 
 // Mobile Menu Toggle
 mobileMenuBtn.addEventListener('click', () => {
@@ -247,15 +235,16 @@ window.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => {
         card.addEventListener("click", () => {
         const pdfPath = card.getAttribute("data-pdf");
-
-        if (isMobile()) {
-            // JIKA MOBILE: Buka PDF di tab baru
-            window.open(pdfPath, '_blank');
-        } else {
-            pdfViewer.src = pdfPath;
-            // downloadLink.href = pdfPath;
-            modal.classList.add("active");
-        }
+            if (pdfPath !== "") {
+                if (isMobile()) {
+                    // JIKA MOBILE: Buka PDF di tab baru
+                    window.open(pdfPath, '_blank');
+                } else {
+                    pdfViewer.src = pdfPath;
+                    // downloadLink.href = pdfPath;
+                    modal.classList.add("active");
+                }
+            }
         });
     });
 

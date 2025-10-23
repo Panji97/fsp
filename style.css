@@ -309,14 +309,23 @@ nav ul li a:hover:after {
     z-index: 3; /* Pastikan konten di atas gambar dan overlay */
 }
 
-.hero h1 {
+.tagline {
     font-size: 2.8rem;
     color: var(--white);
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
 }
 
-.hero p {
+.hero-content-title{
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    color: var(--white);
+    font-weight: 400;
+}
+
+.hero-content-text {
     font-size: 1rem;
     margin-bottom: 30px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -1039,6 +1048,15 @@ footer {
     margin-bottom: 40px;
 }
 
+.footer-company-description{
+    font-size: 1rem;
+    margin-bottom: 12px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    color: var(--white);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
 .footer-column {
     flex: 1;
     min-width: 250px;
@@ -1048,6 +1066,11 @@ footer {
     color: var(--white);
     margin-bottom: 20px;
     position: relative;
+    font-weight: 700;
+}
+
+.footer-column h3 strong {
+    font-weight: 700;
 }
 
 .footer-column h3:after {
@@ -1435,11 +1458,11 @@ footer {
         z-index: 3; /* Pastikan konten di atas gambar dan overlay */
     }
 
-    .hero h1 {
+    .tagline {
         font-size: 2.2rem;
     }
 
-    .hero p {
+    .hero-content-text {
         font-size: 1.2rem;
     }
 
@@ -1597,11 +1620,11 @@ footer {
         padding: 60px 0;
     }
 
-    .hero h1 {
+    .tagline {
         font-size: 1.8rem;
     }
 
-    .hero p {
+    .hero-content-text {
         font-size: 1rem;
     }
 

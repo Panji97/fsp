@@ -125,22 +125,26 @@ const galleryData = [
     {
         id: 1,
         category: 'training',
-        image: '/images/a.jpeg'
+        image: '/images/a.jpeg',
+        alt: "Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
     },
     {
         id: 2,
         category: 'training',
-        image: '/images/b.jpeg'
+        image: '/images/b.jpeg',
+        alt: "Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
     },
     {
         id: 3,
         category: 'training',
-        image: '/images/c.jpeg'
+        image: '/images/c.jpeg',
+        alt: "Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
     },
     {
         id: 4,
         category: 'events',
-        image: '/images/d.jpeg'
+        image: '/images/d.jpeg',
+        alt: "Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
     },
     {
         id: 5,
@@ -150,37 +154,44 @@ const galleryData = [
     {
         id: 6,
         category: 'training',
-        image: '/images/f.jpeg'
+        image: '/images/f.jpeg',
+        alt: "Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
     },
     {
         id: 7,
         category: 'events',
-        image: '/images/g.jpeg'
+        image: '/images/g.jpeg',
+        alt: "Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
     },
     {
         id: 8,
         category: 'training',
-        image: '/images/h.jpeg'
+        image: '/images/h.jpeg',
+        alt: "Sesi Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
     },
     {
         id: 9,
         category: 'events',
-        image: '/images/i.jpeg'
+        image: '/images/i.jpeg',
+        alt: "Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
     },
     {
         id: 10,
         category: 'events',
-        image: '/images/j.jpeg'
+        image: '/images/j.jpeg',
+        alt: "Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
     },
     {
         id: 11,
         category: 'events',
-        image: '/images/k.jpeg'
+        image: '/images/k.jpeg',
+        alt: "Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
     },
     {
         id: 12,
         category: 'training',
-        image: '/images/l.jpeg'
+        image: '/images/l.jpeg',
+        alt: "Event Training & Sertifikasi Profesional Migas, Konstruksi, dan Pertambangan"
     }
 ]
 
@@ -672,7 +683,7 @@ function renderGallery(galleryItems) {
     galleryItems.forEach((item) => {
         const gridItem = document.createElement('div')
         gridItem.className = 'grid-item'
-        gridItem.innerHTML = `<img src="${item.image}" class="galery-image" alt="Gallery Image ${item.id}">`
+        gridItem.innerHTML = `<img src="${item.image}" class="galery-image" alt="${item.alt} ${item.id}">`
 
         gridItem.addEventListener('click', () => {
             showLightbox(item.image)
