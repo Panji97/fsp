@@ -209,7 +209,9 @@ const clientLogos = [
     { id: 10, name: 'Client J', image: '/images/PT. client1.jpeg' },
     { id: 11, name: 'Client K', image: '/images/PT. client2.jpeg' },
     { id: 12, name: 'Client L', image: '/images/PT. client3.png' },
-    { id: 13, name: 'Client M', image: '/images/PT. client4.png' }
+    { id: 13, name: 'Client M', image: '/images/PT. client4.png' },
+    { id: 14, name: 'PT. Radiant Utama Interinsco', image: '/images/PT. Radiant Utama Interinsco.png' },
+    { id: 15, name: 'PT. Bohai Drilling Service Indonesia', image: '/images/PT. Bohai Drilling Service Indonesia.png' }
 ]
 
 // DOM Elements
