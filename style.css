@@ -431,6 +431,12 @@ nav ul li a:hover:after {
     margin: 0 auto;
 }
 
+.ppsdm-logo {
+    width: 254px;
+    height: 86px;
+    margin: 0 auto;
+}
+
 .training-profesional {
     width: 100%;
     display: flex;
@@ -1267,6 +1273,12 @@ footer {
     object-fit: cover;
 }
 
+.info-card-img-ppsdm {
+    width: 224px;
+    height: 61px;
+    object-fit: cover;
+}
+
 .info-card-img-kemnaker {
     width: 224px;
     height: 77px;
@@ -1532,6 +1544,12 @@ footer {
         margin: 0 auto;
     }
 
+    .ppsdm-logo {
+        width: 224px;
+        height: 66px;
+        margin: 0 auto;
+    }
+
     .pelayanan-container {
         padding: 0 20px;
     }
@@ -1614,6 +1632,12 @@ footer {
     }
 
     .info-card-img-bnsp {
+        width: 200px;
+        height: 75px;
+        object-fit: cover;
+    }
+
+    .info-card-img-ppsdm {
         width: 200px;
         height: 75px;
         object-fit: cover;
